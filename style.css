@@ -1225,13 +1225,48 @@ body.popup-open {
     min-height: 55px;
 }
 
-.price {
+/* =========================================
+   PRODUCT PRICE + TRANSFER FEE
+========================================= */
+
+.price-container {
     display: flex;
-    align-items: center;
-    min-width: 70px;
-    height: 45px;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 95px;
     line-height: 1;
+}
+
+.price {
+    color: #d4af37;
+
+    font-size: 22px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
     font-variant-numeric: tabular-nums;
+
+    display: block;
+
+    margin-bottom: 7px;
+}
+
+.transfer-fee {
+    color: #8f897d;
+
+    font-size: 9px;
+
+    letter-spacing: 0.8px;
+
+    white-space: nowrap;
+
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.transfer-fee::before {
+    content: "• ";
+
+    color: rgba(212, 175, 55, 0.7);
 }
 /* =========================================
    SOTRA BEAUTY
