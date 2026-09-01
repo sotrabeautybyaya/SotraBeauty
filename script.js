@@ -5,6 +5,13 @@
 
 
 /* =========================================
+   TRANSFER FEE
+========================================= */
+
+const transferFee = 8;
+
+
+/* =========================================
    ACCESSORIES BOXES
 ========================================= */
 
@@ -14,6 +21,7 @@ const accessoryBoxes = [
         id: 1,
         name: "Accessorie Box 01",
         price: "37 DT",
+        priceNumber: 37,
 
         description:
             "A beautiful selection of feminine pieces carefully chosen by Aya.",
@@ -36,6 +44,7 @@ const accessoryBoxes = [
         id: 2,
         name: "Accessorie Box 02",
         price: "34 DT",
+        priceNumber: 34,
 
         description:
             "A carefully selected collection designed to make every woman feel special.",
@@ -58,6 +67,7 @@ const accessoryBoxes = [
         id: 3,
         name: "Accessorie Box 03",
         price: "46 DT",
+        priceNumber: 46,
 
         description:
             "Elegant pieces and beautiful details gathered together in one special box.",
@@ -79,6 +89,7 @@ const accessoryBoxes = [
         id: 4,
         name: "Accessorie Box 04",
         price: "39 DT",
+        priceNumber: 39,
 
         description:
             "A special combination of beautiful pieces made for every occasion.",
@@ -100,6 +111,7 @@ const accessoryBoxes = [
         id: 5,
         name: "Accessorie Box 05",
         price: "36 DT",
+        priceNumber: 36,
 
         description:
             "A beautiful collection of feminine pieces selected with love and attention to detail.",
@@ -121,6 +133,7 @@ const accessoryBoxes = [
         id: 6,
         name: "Accessorie Box 06",
         price: "36 DT",
+        priceNumber: 36,
 
         description:
             "A special beauty box combining elegance, style and beautiful little details.",
@@ -142,6 +155,7 @@ const accessoryBoxes = [
         id: 7,
         name: "Accessorie Box 07",
         price: "24 DT",
+        priceNumber: 24,
 
         description:
             "A beautiful selection of feminine pieces carefully chosen by Aya.",
@@ -163,6 +177,7 @@ const accessoryBoxes = [
         id: 8,
         name: "Accessorie Box 08",
         price: "34 DT",
+        priceNumber: 34,
 
         description:
             "A beautiful collection of feminine pieces selected with love and attention to detail.",
@@ -194,6 +209,7 @@ const cosmeticBoxes = [
         id: 9,
         name: "Cosmetic Box 09",
         price: "36 DT",
+        priceNumber: 36,
 
         description:
             "A beautiful cosmetic collection with feminine accessories and beauty essentials, carefully selected by Aya.",
@@ -220,6 +236,7 @@ const cosmeticBoxes = [
         id: 10,
         name: "Cosmetic Box 10",
         price: "40 DT",
+        priceNumber: 40,
 
         description:
             "A charming beauty box combining cosmetics, accessories and elegant feminine details.",
@@ -247,6 +264,7 @@ const cosmeticBoxes = [
         id: 11,
         name: "Cosmetic Box 11",
         price: "35 DT",
+        priceNumber: 35,
 
         description:
             "A simple and elegant beauty collection with everyday cosmetic essentials.",
@@ -302,10 +320,13 @@ const allBoxes = [
 
 function createProductCard(box) {
 
-    const card = document.createElement("div");
+    const card =
+        document.createElement("div");
 
     card.classList.add("box-card");
 
+
+    /* FEATURED LABEL */
 
     let featuredLabel = "";
 
@@ -320,8 +341,19 @@ function createProductCard(box) {
     }
 
 
-    const firstImage = box.images[0];
+    /* FIRST IMAGE */
 
+    const firstImage =
+        box.images[0];
+
+
+    /* TOTAL PRICE */
+
+    const totalPrice =
+        box.priceNumber + transferFee;
+
+
+    /* CARD HTML */
 
     card.innerHTML = `
 
@@ -357,9 +389,21 @@ function createProductCard(box) {
 
             <div class="box-bottom">
 
-                <span class="price">
-                    ${box.price}
-                </span>
+                <div class="price-area">
+
+                    <span class="price">
+                        ${box.price}
+                    </span>
+
+                    <span class="transfer-fee">
+                        + ${transferFee} DT transfer fee
+                    </span>
+
+                    <span class="total-price">
+                        Total: ${totalPrice} DT
+                    </span>
+
+                </div>
 
 
                 <div class="box-buttons">
@@ -408,7 +452,9 @@ function createProductCard(box) {
                 (currentImage + 1) % box.images.length;
 
 
-            image.classList.add("image-changing");
+            image.classList.add(
+                "image-changing"
+            );
 
 
             setTimeout(() => {
@@ -416,7 +462,9 @@ function createProductCard(box) {
                 image.src =
                     box.images[currentImage];
 
-                image.classList.remove("image-changing");
+                image.classList.remove(
+                    "image-changing"
+                );
 
             }, 400);
 
@@ -572,10 +620,48 @@ popup.innerHTML = `
         </div>
 
 
+        <div class="popup-price-details">
+
+            <div class="popup-price-row">
+
+                <span>
+                    Box price
+                </span>
+
+                <strong id="popup-box-price">
+                </strong>
+
+            </div>
+
+
+            <div class="popup-price-row">
+
+                <span>
+                    Transfer fee
+                </span>
+
+                <strong>
+                    ${transferFee} DT
+                </strong>
+
+            </div>
+
+
+            <div class="popup-total-row">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="popup-total-price">
+                </strong>
+
+            </div>
+
+        </div>
+
+
         <div class="popup-bottom">
-
-            <span id="popup-price"></span>
-
 
             <a
                 href="${instagramURL}"
@@ -607,8 +693,11 @@ const popupName =
 const popupDescription =
     document.getElementById("popup-description");
 
-const popupPrice =
-    document.getElementById("popup-price");
+const popupBoxPrice =
+    document.getElementById("popup-box-price");
+
+const popupTotalPrice =
+    document.getElementById("popup-total-price");
 
 const popupItemsList =
     document.getElementById("popup-items-list");
@@ -627,67 +716,99 @@ const closePopup =
 function addDetailButtonEvents() {
 
     const detailButtons =
-        document.querySelectorAll(".details-button");
+        document.querySelectorAll(
+            ".details-button"
+        );
 
 
     detailButtons.forEach((button) => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const boxID =
-                Number(button.dataset.id);
+                const boxID =
+                    Number(button.dataset.id);
 
 
-            const box =
-                allBoxes.find(
-                    item => item.id === boxID
+                const box =
+                    allBoxes.find(
+                        item => item.id === boxID
+                    );
+
+
+                if (!box) {
+                    return;
+                }
+
+
+                /* BOX NAME */
+
+                popupName.textContent =
+                    box.name;
+
+
+                /* DESCRIPTION */
+
+                popupDescription.textContent =
+                    box.description;
+
+
+                /* BOX PRICE */
+
+                popupBoxPrice.textContent =
+                    box.price;
+
+
+                /* TOTAL */
+
+                const totalPrice =
+                    box.priceNumber + transferFee;
+
+
+                popupTotalPrice.textContent =
+                    totalPrice + " DT";
+
+
+                /* ITEMS */
+
+                popupItemsList.innerHTML = "";
+
+
+                box.items.forEach((item) => {
+
+                    const li =
+                        document.createElement("li");
+
+
+                    li.textContent =
+                        item;
+
+
+                    popupItemsList.appendChild(li);
+
+                });
+
+
+                /* INSTAGRAM */
+
+                popupInstagram.href =
+                    instagramURL;
+
+
+                /* OPEN POPUP */
+
+                popup.classList.add(
+                    "active"
                 );
 
 
-            if (!box) {
-                return;
+                document.body.classList.add(
+                    "popup-open"
+                );
+
             }
-
-
-            popupName.textContent =
-                box.name;
-
-
-            popupDescription.textContent =
-                box.description;
-
-
-            popupPrice.textContent =
-                box.price;
-
-
-            popupItemsList.innerHTML = "";
-
-
-            box.items.forEach((item) => {
-
-                const li =
-                    document.createElement("li");
-
-                li.textContent =
-                    item;
-
-                popupItemsList.appendChild(li);
-
-            });
-
-
-            popupInstagram.href =
-                instagramURL;
-
-
-            popup.classList.add("active");
-
-            document.body.classList.add(
-                "popup-open"
-            );
-
-        });
+        );
 
     });
 
@@ -703,15 +824,20 @@ addDetailButtonEvents();
 
 if (closePopup) {
 
-    closePopup.addEventListener("click", () => {
+    closePopup.addEventListener(
+        "click",
+        () => {
 
-        popup.classList.remove("active");
+            popup.classList.remove(
+                "active"
+            );
 
-        document.body.classList.remove(
-            "popup-open"
-        );
+            document.body.classList.remove(
+                "popup-open"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -720,38 +846,48 @@ if (closePopup) {
    CLICK OUTSIDE POPUP
 ========================================= */
 
-popup.addEventListener("click", (event) => {
+popup.addEventListener(
+    "click",
+    (event) => {
 
-    if (event.target === popup) {
+        if (event.target === popup) {
 
-        popup.classList.remove("active");
+            popup.classList.remove(
+                "active"
+            );
 
-        document.body.classList.remove(
-            "popup-open"
-        );
+            document.body.classList.remove(
+                "popup-open"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================
    ESCAPE KEY
 ========================================= */
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (event.key === "Escape") {
+        if (event.key === "Escape") {
 
-        popup.classList.remove("active");
+            popup.classList.remove(
+                "active"
+            );
 
-        document.body.classList.remove(
-            "popup-open"
-        );
+            document.body.classList.remove(
+                "popup-open"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================
@@ -767,13 +903,20 @@ const navLinks =
 
 if (menuToggle && navLinks) {
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-        menuToggle.classList.toggle("active");
+            menuToggle.classList.toggle(
+                "active"
+            );
 
-        navLinks.classList.toggle("active");
+            navLinks.classList.toggle(
+                "active"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -783,26 +926,35 @@ if (menuToggle && navLinks) {
 ========================================= */
 
 const navigationLinks =
-    document.querySelectorAll(".nav-links a");
+    document.querySelectorAll(
+        ".nav-links a"
+    );
 
 
 navigationLinks.forEach((link) => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener(
+        "click",
+        () => {
 
-        if (menuToggle) {
+            if (menuToggle) {
 
-            menuToggle.classList.remove("active");
+                menuToggle.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            if (navLinks) {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
 
         }
-
-
-        if (navLinks) {
-
-            navLinks.classList.remove("active");
-
-        }
-
-    });
+    );
 
 });
