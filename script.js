@@ -397,7 +397,7 @@ function createProductCard(box) {
 
                     <a
                         href="${instagramURL}"
-                        target="_blank"
+                        target="_self"
                         rel="noopener noreferrer"
                         class="gold-button order-button"
                     >
@@ -620,7 +620,7 @@ popup.innerHTML = `
 
             <a
                 href="${instagramURL}"
-                target="_blank"
+               target="_self"
                 rel="noopener noreferrer"
                 id="popup-instagram"
                 class="gold-button"
