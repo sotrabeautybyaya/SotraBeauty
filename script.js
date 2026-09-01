@@ -12,9 +12,7 @@ const accessoryBoxes = [
 
     {
         id: 1,
-
         name: "Accessorie Box 01",
-
         price: "37 DT",
 
         description:
@@ -37,9 +35,7 @@ const accessoryBoxes = [
 
     {
         id: 2,
-
         name: "Accessorie Box 02",
-
         price: "34 DT",
 
         description:
@@ -62,9 +58,7 @@ const accessoryBoxes = [
 
     {
         id: 3,
-
         name: "Accessorie Box 03",
-
         price: "46 DT",
 
         description:
@@ -86,9 +80,7 @@ const accessoryBoxes = [
 
     {
         id: 4,
-
         name: "Accessorie Box 04",
-
         price: "39 DT",
 
         description:
@@ -110,9 +102,7 @@ const accessoryBoxes = [
 
     {
         id: 5,
-
         name: "Accessorie Box 05",
-
         price: "36 DT",
 
         description:
@@ -134,9 +124,7 @@ const accessoryBoxes = [
 
     {
         id: 6,
-
         name: "Accessorie Box 06",
-
         price: "36 DT",
 
         description:
@@ -158,9 +146,7 @@ const accessoryBoxes = [
 
     {
         id: 7,
-
         name: "Accessorie Box 07",
-
         price: "24 DT",
 
         description:
@@ -182,9 +168,7 @@ const accessoryBoxes = [
 
     {
         id: 8,
-
         name: "Accessorie Box 08",
-
         price: "34 DT",
 
         description:
@@ -216,9 +200,7 @@ const cosmeticBoxes = [
 
     {
         id: 9,
-
         name: "Cosmetic Box 09",
-
         price: "36 DT",
 
         description:
@@ -245,9 +227,7 @@ const cosmeticBoxes = [
 
     {
         id: 10,
-
         name: "Cosmetic Box 10",
-
         price: "40 DT",
 
         description:
@@ -275,9 +255,7 @@ const cosmeticBoxes = [
 
     {
         id: 11,
-
         name: "Cosmetic Box 11",
-
         price: "35 DT",
 
         description:
@@ -303,6 +281,15 @@ const cosmeticBoxes = [
 
 
 /* =========================================
+   HIJAB BOXES
+   EMPTY FOR NOW
+========================================= */
+
+const hijabBoxes = [];
+
+
+
+/* =========================================
    INSTAGRAM
 ========================================= */
 
@@ -312,14 +299,15 @@ const instagramURL =
 
 
 /* =========================================
-   CONTAINERS
+   ALL BOXES
+   Used for the popup
 ========================================= */
 
-const boxesContainer =
-    document.getElementById("boxes-container");
-
-const cosmeticsContainer =
-    document.getElementById("cosmetics-container");
+const allBoxes = [
+    ...accessoryBoxes,
+    ...cosmeticBoxes,
+    ...hijabBoxes
+];
 
 
 
@@ -479,12 +467,16 @@ function createProductCard(box) {
 
 function displayAccessories() {
 
-    if (!boxesContainer) {
+    const container =
+        document.getElementById("boxes-container");
+
+
+    if (!container) {
         return;
     }
 
 
-    boxesContainer.innerHTML = "";
+    container.innerHTML = "";
 
 
     accessoryBoxes.forEach((box) => {
@@ -492,7 +484,7 @@ function displayAccessories() {
         const card =
             createProductCard(box);
 
-        boxesContainer.appendChild(card);
+        container.appendChild(card);
 
     });
 
@@ -506,12 +498,16 @@ function displayAccessories() {
 
 function displayCosmetics() {
 
-    if (!cosmeticsContainer) {
+    const container =
+        document.getElementById("cosmetics-container");
+
+
+    if (!container) {
         return;
     }
 
 
-    cosmeticsContainer.innerHTML = "";
+    container.innerHTML = "";
 
 
     cosmeticBoxes.forEach((box) => {
@@ -519,7 +515,7 @@ function displayCosmetics() {
         const card =
             createProductCard(box);
 
-        cosmeticsContainer.appendChild(card);
+        container.appendChild(card);
 
     });
 
@@ -528,12 +524,45 @@ function displayCosmetics() {
 
 
 /* =========================================
-   DISPLAY ALL PRODUCTS
+   DISPLAY HIJABS
+========================================= */
+
+function displayHijabs() {
+
+    const container =
+        document.getElementById("hijabs-container");
+
+
+    if (!container) {
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+    hijabBoxes.forEach((box) => {
+
+        const card =
+            createProductCard(box);
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =========================================
+   DISPLAY ALL SECTIONS
 ========================================= */
 
 displayAccessories();
 
 displayCosmetics();
+
+displayHijabs();
 
 
 
@@ -590,7 +619,7 @@ popup.innerHTML = `
 
 
             <a
-                href="#"
+                href="${instagramURL}"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="popup-instagram"
@@ -635,34 +664,6 @@ const closePopup =
 
 
 /* =========================================
-   FIND PRODUCT
-========================================= */
-
-function findBoxByID(boxID) {
-
-    let box =
-        accessoryBoxes.find(
-            item => item.id === boxID
-        );
-
-
-    if (!box) {
-
-        box =
-            cosmeticBoxes.find(
-                item => item.id === boxID
-            );
-
-    }
-
-
-    return box;
-
-}
-
-
-
-/* =========================================
    ADD VIEW DETAILS EVENTS
 ========================================= */
 
@@ -681,7 +682,7 @@ function addDetailButtonEvents() {
 
 
             const box =
-                findBoxByID(boxID);
+                allBoxes.find(item => item.id === boxID);
 
 
             if (!box) {
@@ -743,8 +744,6 @@ function addDetailButtonEvents() {
 
 }
 
-
-/* ADD EVENTS AFTER CARDS ARE CREATED */
 
 addDetailButtonEvents();
 
@@ -838,16 +837,11 @@ navigationLinks.forEach((link) => {
     link.addEventListener("click", () => {
 
         if (menuToggle) {
-
             menuToggle.classList.remove("active");
-
         }
 
-
         if (navLinks) {
-
             navLinks.classList.remove("active");
-
         }
 
     });
