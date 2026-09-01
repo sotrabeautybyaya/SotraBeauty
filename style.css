@@ -35,6 +35,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+
     z-index: 1000;
 
     background: rgba(8, 8, 8, 0.94);
@@ -46,17 +47,22 @@ header {
 
 .navbar {
     max-width: 1200px;
+
     margin: auto;
 
     padding: 18px 30px;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 }
 
 
-/* LOGO */
+/* =========================================
+   LOGO
+========================================= */
 
 .logo {
     color: #d4af37;
@@ -93,7 +99,9 @@ header {
 }
 
 
-/* NAV LINKS */
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
 
 .nav-links {
     display: flex;
@@ -245,10 +253,13 @@ header {
 
     letter-spacing: 2px;
 
+    background: transparent;
+
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
-        background-color 0.3s ease;
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .gold-button:hover {
@@ -337,7 +348,9 @@ section {
 }
 
 
-/* BOX GRID */
+/* =========================================
+   BOX GRID
+========================================= */
 
 .boxes-container {
     max-width: 1150px;
@@ -410,37 +423,29 @@ section {
 
 
 /* =========================================
-   PRODUCT IMAGES
+   FEATURED LABEL
 ========================================= */
 
-.box-product-image {
-    width: 100%;
+.featured-label {
+    position: absolute;
 
-    height: 100%;
+    top: 18px;
 
-    object-fit: contain;
+    right: 18px;
 
-    display: block;
+    z-index: 5;
 
-    padding: 25px;
+    padding: 8px 13px;
 
-    transition:
-        transform 0.6s ease,
-        opacity 0.4s ease;
-}
+    background: #d4af37;
 
+    color: #111;
 
-/* GENTLE IMAGE ZOOM */
+    font-size: 9px;
 
-.box-card:hover .box-product-image {
-    transform: scale(1.04);
-}
+    letter-spacing: 2px;
 
-
-/* SLIDESHOW FADE */
-
-.box-product-image.image-changing {
-    opacity: 0;
+    font-weight: bold;
 }
 
 
@@ -476,29 +481,38 @@ section {
 
 
 /* =========================================
-   FEATURED LABEL
+   PRODUCT IMAGES
 ========================================= */
 
-.featured-label {
-    position: absolute;
+.box-product-image {
+    width: 100%;
 
-    top: 18px;
+    height: 100%;
 
-    right: 18px;
+    object-fit: contain;
 
-    z-index: 5;
+    display: block;
 
-    padding: 8px 13px;
+    padding: 25px;
 
-    background: #d4af37;
+    transition:
+        transform 0.6s ease,
+        opacity 0.4s ease;
+}
 
-    color: #111;
 
-    font-size: 9px;
+/* IMAGE HOVER */
 
-    letter-spacing: 2px;
+.box-card:hover .box-product-image {
+    transform: scale(1.04);
+}
 
-    font-weight: bold;
+
+/* SLIDESHOW FADE */
+
+.box-product-image.image-changing,
+.image-changing {
+    opacity: 0;
 }
 
 
@@ -540,7 +554,7 @@ section {
 
 
 /* =========================================
-   PRICE + BUTTON AREA
+   LUXURY PRICING & ORDER AREA
 ========================================= */
 
 .box-bottom {
@@ -550,17 +564,17 @@ section {
 
     align-items: center;
 
-    margin-top: 25px;
+    margin-top: 28px;
 
-    padding-top: 20px;
-
-    min-height: 70px;
+    padding-top: 22px;
 
     border-top:
         1px solid
-        rgba(255, 255, 255, 0.08);
+        rgba(212, 175, 55, 0.14);
 
-    gap: 20px;
+    gap: 25px;
+
+    min-height: 75px;
 }
 
 
@@ -575,65 +589,79 @@ section {
 
     justify-content: center;
 
-    align-items: flex-start;
-
     min-width: 115px;
 
-    line-height: 1;
+    position: relative;
 }
 
 
-/* MAIN PRICE */
+/* SMALL LABEL */
+
+.price-container::before {
+    content: "BOX PRICE";
+
+    color: #777066;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================
+   MAIN PRICE
+========================================= */
 
 .price {
     color: #d4af37;
 
-    font-size: 23px;
+    font-size: 25px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-variant-numeric: tabular-nums;
+    font-weight: normal;
+
+    line-height: 1;
 
     display: block;
 
-    margin-bottom: 8px;
-
     letter-spacing: 0.5px;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
-/* TRANSFER FEE */
+/* =========================================
+   TRANSFER FEE
+========================================= */
 
 .transfer-fee {
-    color: #9b9487;
+    color: #827b70;
 
     font-size: 9px;
 
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
 
     white-space: nowrap;
+
+    margin-top: 7px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
-
-    opacity: 0.9;
 }
 
 .transfer-fee::before {
-    content: "✦";
+    content: "• ";
 
-    color: rgba(212, 175, 55, 0.8);
-
-    font-size: 7px;
-
-    margin-right: 6px;
-
-    vertical-align: 1px;
+    color:
+        rgba(212, 175, 55, 0.65);
 }
 
 
@@ -646,53 +674,120 @@ section {
 
     align-items: center;
 
+    justify-content: flex-end;
+
     gap: 10px;
 }
 
 
-/* DETAILS BUTTON */
+/* =========================================
+   VIEW DETAILS BUTTON
+========================================= */
 
 .details-button {
     background: transparent;
 
-    border: 1px solid #d4af37;
+    border:
+        1px solid
+        rgba(212, 175, 55, 0.45);
 
-    color: #d4af37;
+    color: #b8ad99;
 
-    padding: 11px 18px;
+    padding: 12px 17px;
 
     font-family: inherit;
 
-    font-size: 10px;
+    font-size: 9px;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
 
     cursor: pointer;
 
     transition:
-        transform 0.3s ease,
-        background-color 0.3s ease,
         color 0.3s ease,
-        opacity 0.3s ease;
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
 .details-button:hover {
-    background: #d4af37;
+    color: #d4af37;
 
-    color: #111;
+    border-color: #d4af37;
+
+    background:
+        rgba(212, 175, 55, 0.05);
 
     transform: translateY(-2px);
 }
 
 
-/* ORDER BUTTON */
+/* =========================================
+   ORDER ON INSTAGRAM
+========================================= */
 
 .order-button {
-    padding: 11px 15px;
+    position: relative;
+
+    padding: 12px 18px;
 
     font-size: 9px;
 
+    letter-spacing: 1.7px;
+
     white-space: nowrap;
+
+    background:
+        rgba(212, 175, 55, 0.04);
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s ease;
+}
+
+.order-button:hover {
+    background: #d4af37;
+
+    color: #080808;
+
+    box-shadow:
+        0 5px 20px
+        rgba(212, 175, 55, 0.18);
+
+    transform: translateY(-2px);
+}
+
+
+/* SUBTLE GOLD LINE */
+
+.order-button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    right: 18px;
+
+    bottom: 5px;
+
+    height: 1px;
+
+    background:
+        rgba(212, 175, 55, 0.45);
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.order-button:hover::after {
+    transform: scaleX(1);
 }
 
 
@@ -883,11 +978,11 @@ footer .copyright {
 
     visibility: hidden;
 
-    backdrop-filter: blur(8px);
-
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
+
+    backdrop-filter: blur(8px);
 }
 
 
@@ -901,7 +996,7 @@ footer .copyright {
 
 
 /* =========================================
-   POPUP CONTENT
+   POPUP BOX
 ========================================= */
 
 .popup-content {
@@ -988,8 +1083,8 @@ footer .copyright {
 
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease,
-        opacity 0.3s ease;
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 .close-popup:hover {
@@ -1112,70 +1207,64 @@ footer .copyright {
 }
 
 
-/* POPUP PRICE CONTAINER */
+/* =========================================
+   POPUP PRICE CONTAINER
+========================================= */
 
 .popup-price-container {
     display: flex;
 
     flex-direction: column;
 
+    justify-content: center;
+
     align-items: flex-start;
 
-    justify-content: center;
+    text-align: left;
+
+    min-width: 115px;
 }
 
 
-/* POPUP MAIN PRICE */
+/* =========================================
+   POPUP PRICE
+========================================= */
 
 #popup-price {
     color: #d4af37;
 
-    font-size: 27px;
+    font-size: 25px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-variant-numeric: tabular-nums;
+    line-height: 1;
 
-    letter-spacing: 0.5px;
-
-    display: block;
-
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 
-/* POPUP TRANSFER FEE */
+/* =========================================
+   POPUP TRANSFER FEE
+========================================= */
 
 #popup-transfer-fee {
-    color: #9b9487;
+    color: #8f897d;
 
     font-size: 9px;
 
     letter-spacing: 1px;
 
     white-space: nowrap;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    opacity: 0.9;
 }
 
 #popup-transfer-fee::before {
-    content: "✦";
+    content: "• ";
 
-    color: rgba(212, 175, 55, 0.8);
-
-    font-size: 7px;
-
-    margin-right: 6px;
-
-    vertical-align: 1px;
+    color:
+        rgba(212, 175, 55, 0.7);
 }
 
 
@@ -1245,14 +1334,14 @@ body.popup-open {
     }
 
 
-    /* SHOW MENU */
+    /* MENU BUTTON */
 
     .menu-toggle {
         display: flex;
     }
 
 
-    /* NAVIGATION */
+    /* NAV LINKS */
 
     .nav-links {
         position: absolute;
@@ -1298,8 +1387,7 @@ body.popup-open {
         max-height: 300px;
 
         padding:
-            15px 0
-            20px;
+            15px 0 20px;
 
         opacity: 1;
     }
@@ -1341,14 +1429,13 @@ body.popup-open {
     }
 
 
-    /* MOBILE BOX GRID */
+    /* =====================================
+       MOBILE PRODUCT CARDS
+    ===================================== */
 
     .boxes-container {
         grid-template-columns: 1fr;
     }
-
-
-    /* MOBILE IMAGE */
 
     .box-image {
         height: 320px;
@@ -1359,13 +1446,50 @@ body.popup-open {
     }
 
 
-    /* MOBILE CARD BOTTOM */
+    /* =====================================
+       MOBILE PRICE / ORDER AREA
+    ===================================== */
 
     .box-bottom {
-        align-items: flex-start;
+        flex-direction: column;
 
-        gap: 15px;
+        align-items: stretch;
+
+        gap: 20px;
+
+        padding-top: 22px;
     }
+
+
+    .price-container {
+        align-items: center;
+
+        text-align: center;
+
+        min-width: auto;
+
+        padding-bottom: 5px;
+    }
+
+
+    .price-container::before {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .price {
+        font-size: 27px;
+    }
+
+
+    .transfer-fee {
+        font-size: 9px;
+
+        margin-top: 8px;
+    }
+
 
     .box-buttons {
         flex-direction: column;
@@ -1373,47 +1497,24 @@ body.popup-open {
         align-items: stretch;
 
         width: 100%;
+
+        gap: 10px;
     }
+
 
     .details-button,
     .order-button {
         width: 100%;
 
         text-align: center;
+
+        padding: 13px 15px;
     }
 
 
-    /* MOBILE PRICE */
-
-    .price-container {
-        min-width: 110px;
-
-        align-items: flex-start;
-    }
-
-    .price {
-        font-size: 22px;
-    }
-
-    .transfer-fee {
-        font-size: 8px;
-
-        letter-spacing: 0.8px;
-    }
-
-
-    /* MOBILE HERO */
-
-    .hero h1 {
-        letter-spacing: 5px;
-    }
-
-    .hero h2 {
-        letter-spacing: 7px;
-    }
-
-
-    /* MOBILE STEPS */
+    /* =====================================
+       MOBILE STEPS
+    ===================================== */
 
     .steps-container {
         grid-template-columns: 1fr;
@@ -1422,7 +1523,9 @@ body.popup-open {
     }
 
 
-    /* MOBILE TITLES */
+    /* =====================================
+       MOBILE TITLES
+    ===================================== */
 
     .section-title h2 {
         font-size: 36px;
@@ -1433,7 +1536,9 @@ body.popup-open {
     }
 
 
-    /* MOBILE CONTACT */
+    /* =====================================
+       MOBILE CONTACT
+    ===================================== */
 
     .contact-buttons {
         flex-direction: column;
@@ -1453,14 +1558,17 @@ body.popup-open {
         padding: 15px;
     }
 
+
     .popup-content {
         padding:
             45px 25px 30px;
     }
 
+
     .popup-content h2 {
         font-size: 31px;
     }
+
 
     .popup-bottom {
         flex-direction: column;
@@ -1468,27 +1576,51 @@ body.popup-open {
         align-items: stretch;
     }
 
-    .popup-bottom .gold-button {
-        text-align: center;
-    }
-
-
-    /* CENTER POPUP PRICE */
 
     .popup-price-container {
         align-items: center;
 
         text-align: center;
-
-        width: 100%;
     }
+
 
     #popup-price {
         font-size: 26px;
     }
 
+
     #popup-transfer-fee {
         font-size: 9px;
+    }
+
+
+    .popup-bottom .gold-button {
+        text-align: center;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .box-info {
+        padding: 22px;
+    }
+
+    .price {
+        font-size: 25px;
+    }
+
+    .transfer-fee {
+        font-size: 8px;
+    }
+
+    .popup-content {
+        padding:
+            42px 20px 25px;
     }
 }
 
