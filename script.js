@@ -135,7 +135,7 @@ const boxes = [
     {
         id: 6,
 
-        name: "Accessorie  Box 06",
+        name: "Accessorie Box 06",
 
         price: "36 DT",
 
@@ -157,7 +157,7 @@ const boxes = [
 {
     id: 7,
 
-    name: "Accessorie  Box 07",
+    name: "Accessorie Box 07",
 
     price: "24 DT",
 
