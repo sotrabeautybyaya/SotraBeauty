@@ -1515,3 +1515,40 @@ body.popup-open {
     }
 
 }
+/* =========================================
+   POPUP PRICE + TRANSFER FEE
+========================================= */
+
+.popup-price-container {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+#popup-price {
+    color: #d4af37;
+
+    font-size: 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    margin-bottom: 7px;
+}
+
+#popup-transfer-fee {
+    color: #8f897d;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+}
+
+#popup-transfer-fee::before {
+    content: "• ";
+
+    color: rgba(212, 175, 55, 0.7);
+}
