@@ -5,10 +5,10 @@
 
 
 /* =========================================
-   BEAUTY BOXES
+   ACCESSORIES BOXES
 ========================================= */
 
-const boxes = [
+const accessoryBoxes = [
 
     {
         id: 1,
@@ -154,51 +154,149 @@ const boxes = [
 
         featured: false
     },
-{
-    id: 7,
 
-    name: "Accessorie Box 07",
 
-    price: "24 DT",
+    {
+        id: 7,
 
-    description:
-        "A beautiful selection of feminine pieces carefully chosen by Aya.",
+        name: "Accessorie Box 07",
 
-    items: [
-        "Beautiful accessories",
-        "Elegant details",
-        "Carefully selected pieces"
-    ],
+        price: "24 DT",
 
-    images: [
-        "images/Pack7.jpg"
-    ],
+        description:
+            "A beautiful selection of feminine pieces carefully chosen by Aya.",
 
-    featured: false
-},
-{
-    id: 8,
+        items: [
+            "Beautiful accessories",
+            "Elegant details",
+            "Carefully selected pieces"
+        ],
 
-    name: "Accessorie Box 08",
+        images: [
+            "images/Pack7.jpg"
+        ],
 
-    price: "34 DT",
+        featured: false
+    },
 
-    description:
-        "A beautiful collection of feminine pieces selected with love and attention to detail.",
 
-    items: [
-        "Beautiful accessories",
-        "Elegant details",
-        "Carefully selected pieces"
-    ],
+    {
+        id: 8,
 
-    images: [
-        "images/Pack8-1.jpg",
-        "images/Pack8-2.jpg"
-    ],
+        name: "Accessorie Box 08",
 
-    featured: false
-}
+        price: "34 DT",
+
+        description:
+            "A beautiful collection of feminine pieces selected with love and attention to detail.",
+
+        items: [
+            "Beautiful accessories",
+            "Elegant details",
+            "Carefully selected pieces"
+        ],
+
+        images: [
+            "images/Pack8-1.jpg",
+            "images/Pack8-2.jpg"
+        ],
+
+        featured: false
+    }
+
+];
+
+
+
+/* =========================================
+   COSMETICS BOXES
+========================================= */
+
+const cosmeticBoxes = [
+
+    {
+        id: 9,
+
+        name: "Cosmetic Box 09",
+
+        price: "36 DT",
+
+        description:
+            "A beautiful cosmetic collection with feminine accessories and beauty essentials, carefully selected by Aya.",
+
+        items: [
+            "2 éponges de maquillage",
+            "Petit Vaseline pour les lèvres",
+            "Crème pour les mains",
+            "Pince à cheveux en forme de papillon",
+            "Strass",
+            "Huile / gloss à lèvres rose",
+            "Petite pochette en fourrure blanche avec nœud vichy et cerises",
+            "Porte-clés Angel - Stitch rose"
+        ],
+
+        images: [
+            "images/pack9.jpg"
+        ],
+
+        featured: false
+    },
+
+
+    {
+        id: 10,
+
+        name: "Cosmetic Box 10",
+
+        price: "40 DT",
+
+        description:
+            "A charming beauty box combining cosmetics, accessories and elegant feminine details.",
+
+        items: [
+            "Miroir",
+            "Pochette en fourrure rose avec cerises",
+            "2 crèmes pour les mains",
+            "Lip gloss",
+            "Vaseline pour les lèvres",
+            "1 pince à cheveux fleur dorée",
+            "1 bague avec sa petite boîte",
+            "2 beauty blenders",
+            "1 porte-clés (Stitch)"
+        ],
+
+        images: [
+            "images/pack10.jpg"
+        ],
+
+        featured: false
+    },
+
+
+    {
+        id: 11,
+
+        name: "Cosmetic Box 11",
+
+        price: "35 DT",
+
+        description:
+            "A simple and elegant beauty collection with everyday cosmetic essentials.",
+
+        items: [
+            "Miroir",
+            "2 beauty blenders Anguoer",
+            "Vaseline pour les lèvres",
+            "2 crèmes pour les mains",
+            "Lip gloss / huile à lèvres brillante"
+        ],
+
+        images: [
+            "images/pack11.jpg"
+        ],
+
+        featured: false
+    }
 
 ];
 
@@ -214,175 +312,228 @@ const instagramURL =
 
 
 /* =========================================
-   CREATE PRODUCT CARDS
+   CONTAINERS
 ========================================= */
 
 const boxesContainer =
     document.getElementById("boxes-container");
 
-
-function displayBoxes() {
-
-    boxesContainer.innerHTML = "";
+const cosmeticsContainer =
+    document.getElementById("cosmetics-container");
 
 
-    boxes.forEach((box) => {
 
-        const card =
-            document.createElement("div");
+/* =========================================
+   CREATE PRODUCT CARD
+========================================= */
 
-        card.classList.add("box-card");
+function createProductCard(box) {
 
+    const card =
+        document.createElement("div");
 
-        /* FEATURED LABEL */
-
-        let featuredLabel = "";
-
-        if (box.featured) {
-
-            featuredLabel = `
-                <div class="featured-label">
-                    FEATURED
-                </div>
-            `;
-
-        }
+    card.classList.add("box-card");
 
 
-        /* FIRST IMAGE */
+    /* FEATURED LABEL */
 
-        const firstImage =
-            box.images[0];
+    let featuredLabel = "";
 
+    if (box.featured) {
 
-        /* CARD HTML */
-
-        card.innerHTML = `
-
-            <div class="box-image">
-
-                ${featuredLabel}
-
-                <img
-                    class="box-product-image"
-                    src="${firstImage}"
-                    alt="${box.name}"
-                >
-
+        featuredLabel = `
+            <div class="featured-label">
+                FEATURED
             </div>
-
-
-            <div class="box-info">
-
-                <p class="box-number">
-                    BOX ${String(box.id).padStart(2, "0")}
-                </p>
-
-
-                <h3>
-                    ${box.name}
-                </h3>
-
-
-                <p class="box-description">
-                    ${box.description}
-                </p>
-
-
-                <div class="box-bottom">
-
-                    <span class="price">
-                        ${box.price}
-                    </span>
-
-
-                    <div class="box-buttons">
-
-                        <button
-                            class="details-button"
-                            data-id="${box.id}"
-                        >
-                            VIEW DETAILS
-                        </button>
-
-
-                        <a
-                            href="${instagramURL}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="gold-button order-button"
-                        >
-                            ORDER ON INSTAGRAM
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
         `;
 
-
-        boxesContainer.appendChild(card);
-
+    }
 
 
-        /* =========================================
-           AUTOMATIC IMAGE SLIDESHOW
-        ========================================= */
+    /* FIRST IMAGE */
 
-        if (box.images.length > 1) {
-
-            const image =
-                card.querySelector(".box-product-image");
+    const firstImage =
+        box.images[0];
 
 
-            let currentImage = 0;
+    /* CARD HTML */
+
+    card.innerHTML = `
+
+        <div class="box-image">
+
+            ${featuredLabel}
+
+            <img
+                class="box-product-image"
+                src="${firstImage}"
+                alt="${box.name}"
+            >
+
+        </div>
 
 
-            setInterval(() => {
+        <div class="box-info">
 
-                currentImage =
-                    (currentImage + 1) % box.images.length;
-
-
-                /* FADE OUT */
-
-                image.classList.add("image-changing");
+            <p class="box-number">
+                BOX ${String(box.id).padStart(2, "0")}
+            </p>
 
 
-                setTimeout(() => {
-
-                    image.src =
-                        box.images[currentImage];
-
-
-                    /* FADE IN */
-
-                    image.classList.remove("image-changing");
-
-                }, 400);
+            <h3>
+                ${box.name}
+            </h3>
 
 
-            }, 5000);
-
-        }
-
-    });
+            <p class="box-description">
+                ${box.description}
+            </p>
 
 
-    addDetailButtonEvents();
+            <div class="box-bottom">
+
+                <span class="price">
+                    ${box.price}
+                </span>
+
+
+                <div class="box-buttons">
+
+                    <button
+                        class="details-button"
+                        data-id="${box.id}"
+                    >
+                        VIEW DETAILS
+                    </button>
+
+
+                    <a
+                        href="${instagramURL}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="gold-button order-button"
+                    >
+                        ORDER ON INSTAGRAM
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    /* =========================================
+       AUTOMATIC IMAGE SLIDESHOW
+    ========================================= */
+
+    if (box.images.length > 1) {
+
+        const image =
+            card.querySelector(".box-product-image");
+
+
+        let currentImage = 0;
+
+
+        setInterval(() => {
+
+            currentImage =
+                (currentImage + 1) % box.images.length;
+
+
+            /* FADE OUT */
+
+            image.classList.add("image-changing");
+
+
+            setTimeout(() => {
+
+                image.src =
+                    box.images[currentImage];
+
+
+                /* FADE IN */
+
+                image.classList.remove("image-changing");
+
+            }, 400);
+
+
+        }, 5000);
+
+    }
+
+
+    return card;
 
 }
 
 
 
 /* =========================================
-   DISPLAY BOXES
+   DISPLAY ACCESSORIES
 ========================================= */
 
-displayBoxes();
+function displayAccessories() {
+
+    if (!boxesContainer) {
+        return;
+    }
+
+
+    boxesContainer.innerHTML = "";
+
+
+    accessoryBoxes.forEach((box) => {
+
+        const card =
+            createProductCard(box);
+
+        boxesContainer.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =========================================
+   DISPLAY COSMETICS
+========================================= */
+
+function displayCosmetics() {
+
+    if (!cosmeticsContainer) {
+        return;
+    }
+
+
+    cosmeticsContainer.innerHTML = "";
+
+
+    cosmeticBoxes.forEach((box) => {
+
+        const card =
+            createProductCard(box);
+
+        cosmeticsContainer.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =========================================
+   DISPLAY ALL PRODUCTS
+========================================= */
+
+displayAccessories();
+
+displayCosmetics();
 
 
 
@@ -484,6 +635,34 @@ const closePopup =
 
 
 /* =========================================
+   FIND PRODUCT
+========================================= */
+
+function findBoxByID(boxID) {
+
+    let box =
+        accessoryBoxes.find(
+            item => item.id === boxID
+        );
+
+
+    if (!box) {
+
+        box =
+            cosmeticBoxes.find(
+                item => item.id === boxID
+            );
+
+    }
+
+
+    return box;
+
+}
+
+
+
+/* =========================================
    ADD VIEW DETAILS EVENTS
 ========================================= */
 
@@ -502,7 +681,7 @@ function addDetailButtonEvents() {
 
 
             const box =
-                boxes.find(item => item.id === boxID);
+                findBoxByID(boxID);
 
 
             if (!box) {
@@ -563,6 +742,11 @@ function addDetailButtonEvents() {
     });
 
 }
+
+
+/* ADD EVENTS AFTER CARDS ARE CREATED */
+
+addDetailButtonEvents();
 
 
 
@@ -627,13 +811,17 @@ const navLinks =
     document.querySelector(".nav-links");
 
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
 
-    menuToggle.classList.toggle("active");
+    menuToggle.addEventListener("click", () => {
 
-    navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
 
-});
+        navLinks.classList.toggle("active");
+
+    });
+
+}
 
 
 
@@ -649,9 +837,18 @@ navigationLinks.forEach((link) => {
 
     link.addEventListener("click", () => {
 
-        menuToggle.classList.remove("active");
+        if (menuToggle) {
 
-        navLinks.classList.remove("active");
+            menuToggle.classList.remove("active");
+
+        }
+
+
+        if (navLinks) {
+
+            navLinks.classList.remove("active");
+
+        }
 
     });
 
