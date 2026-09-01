@@ -1,4 +1,3 @@
-```css
 /* =========================================
    SOTRA BEAUTY BY AYA
    LUXURY BEAUTY BOX WEBSITE
@@ -60,9 +59,7 @@ header {
 }
 
 
-/* =========================================
-   LOGO
-========================================= */
+/* LOGO */
 
 .logo {
     color: #d4af37;
@@ -99,9 +96,7 @@ header {
 }
 
 
-/* =========================================
-   NAVIGATION LINKS
-========================================= */
+/* NAV LINKS */
 
 .nav-links {
     display: flex;
@@ -189,8 +184,7 @@ header {
 
     max-width: 900px;
 
-    animation:
-        sotraFadeUp 1.2s ease-out both;
+    animation: sotraFadeUp 1.2s ease-out both;
 }
 
 .small-title {
@@ -253,13 +247,10 @@ header {
 
     letter-spacing: 2px;
 
-    background: transparent;
-
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
-        background-color 0.3s ease,
-        color 0.3s ease;
+        background-color 0.3s ease;
 }
 
 .gold-button:hover {
@@ -291,8 +282,7 @@ section {
 
     margin-bottom: 55px;
 
-    animation:
-        sotraFadeUp 0.9s ease-out both;
+    animation: sotraFadeUp 0.9s ease-out both;
 }
 
 .section-title p {
@@ -348,9 +338,7 @@ section {
 }
 
 
-/* =========================================
-   BOX GRID
-========================================= */
+/* BOX GRID */
 
 .boxes-container {
     max-width: 1150px;
@@ -370,7 +358,12 @@ section {
 ========================================= */
 
 .box-card {
-    background: #151515;
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #121212
+        );
 
     border: 1px solid rgba(212, 175, 55, 0.18);
 
@@ -388,8 +381,7 @@ section {
 .box-card:hover {
     transform: translateY(-7px);
 
-    border-color:
-        rgba(212, 175, 55, 0.65);
+    border-color: rgba(212, 175, 55, 0.65);
 
     box-shadow:
         0 15px 50px rgba(0, 0, 0, 0.5);
@@ -450,37 +442,6 @@ section {
 
 
 /* =========================================
-   PLACEHOLDER
-========================================= */
-
-.image-placeholder {
-    width: 82%;
-
-    height: 82%;
-
-    border:
-        1px dashed
-        rgba(212, 175, 55, 0.35);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-}
-
-.image-placeholder span {
-    color: #8d877b;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-}
-
-
-/* =========================================
    PRODUCT IMAGES
 ========================================= */
 
@@ -500,19 +461,41 @@ section {
         opacity 0.4s ease;
 }
 
-
-/* IMAGE HOVER */
-
 .box-card:hover .box-product-image {
     transform: scale(1.04);
 }
 
-
-/* SLIDESHOW FADE */
-
-.box-product-image.image-changing,
-.image-changing {
+.box-product-image.image-changing {
     opacity: 0;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.image-placeholder {
+    width: 82%;
+
+    height: 82%;
+
+    border: 1px dashed rgba(212, 175, 55, 0.35);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.image-placeholder span {
+    color: #8d877b;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
 }
 
 
@@ -554,7 +537,7 @@ section {
 
 
 /* =========================================
-   LUXURY PRICING & ORDER AREA
+   PRICE + ORDER AREA
 ========================================= */
 
 .box-bottom {
@@ -564,17 +547,15 @@ section {
 
     align-items: center;
 
-    margin-top: 28px;
+    margin-top: 25px;
 
-    padding-top: 22px;
+    padding-top: 20px;
 
-    border-top:
-        1px solid
-        rgba(212, 175, 55, 0.14);
+    min-height: 70px;
 
-    gap: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    min-height: 75px;
+    gap: 20px;
 }
 
 
@@ -589,67 +570,44 @@ section {
 
     justify-content: center;
 
-    min-width: 115px;
+    min-width: 105px;
 
-    position: relative;
+    line-height: 1;
+
+    padding: 4px 0;
 }
 
 
-/* SMALL LABEL */
-
-.price-container::before {
-    content: "BOX PRICE";
-
-    color: #777066;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 6px;
-}
-
-
-/* =========================================
-   MAIN PRICE
-========================================= */
+/* MAIN PRICE */
 
 .price {
     color: #d4af37;
 
-    font-size: 25px;
+    font-size: 22px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-weight: normal;
-
-    line-height: 1;
+    font-variant-numeric: tabular-nums;
 
     display: block;
 
-    letter-spacing: 0.5px;
-
-    font-variant-numeric: tabular-nums;
+    margin-bottom: 7px;
 }
 
 
-/* =========================================
-   TRANSFER FEE
-========================================= */
+/* TRANSFER FEE */
 
 .transfer-fee {
-    color: #827b70;
+    color: #8f897d;
 
     font-size: 9px;
 
     letter-spacing: 0.8px;
 
     white-space: nowrap;
-
-    margin-top: 7px;
 
     font-family:
         Georgia,
@@ -660,8 +618,7 @@ section {
 .transfer-fee::before {
     content: "• ";
 
-    color:
-        rgba(212, 175, 55, 0.65);
+    color: rgba(212, 175, 55, 0.7);
 }
 
 
@@ -680,114 +637,48 @@ section {
 }
 
 
-/* =========================================
-   VIEW DETAILS BUTTON
-========================================= */
+/* DETAILS BUTTON */
 
 .details-button {
     background: transparent;
 
-    border:
-        1px solid
-        rgba(212, 175, 55, 0.45);
+    border: 1px solid #d4af37;
 
-    color: #b8ad99;
+    color: #d4af37;
 
-    padding: 12px 17px;
+    padding: 11px 18px;
 
     font-family: inherit;
 
-    font-size: 9px;
+    font-size: 10px;
 
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
     cursor: pointer;
 
     transition:
-        color 0.3s ease,
-        border-color 0.3s ease,
+        transform 0.3s ease,
         background 0.3s ease,
-        transform 0.3s ease;
+        color 0.3s ease;
 }
 
 .details-button:hover {
-    color: #d4af37;
+    background: #d4af37;
 
-    border-color: #d4af37;
-
-    background:
-        rgba(212, 175, 55, 0.05);
+    color: #111;
 
     transform: translateY(-2px);
 }
 
 
-/* =========================================
-   ORDER ON INSTAGRAM
-========================================= */
+/* ORDER BUTTON */
 
 .order-button {
-    position: relative;
-
-    padding: 12px 18px;
+    padding: 11px 15px;
 
     font-size: 9px;
 
-    letter-spacing: 1.7px;
-
     white-space: nowrap;
-
-    background:
-        rgba(212, 175, 55, 0.04);
-
-    transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        box-shadow 0.35s ease,
-        transform 0.35s ease;
-}
-
-.order-button:hover {
-    background: #d4af37;
-
-    color: #080808;
-
-    box-shadow:
-        0 5px 20px
-        rgba(212, 175, 55, 0.18);
-
-    transform: translateY(-2px);
-}
-
-
-/* SUBTLE GOLD LINE */
-
-.order-button::after {
-    content: "";
-
-    position: absolute;
-
-    left: 18px;
-
-    right: 18px;
-
-    bottom: 5px;
-
-    height: 1px;
-
-    background:
-        rgba(212, 175, 55, 0.45);
-
-    transform: scaleX(0);
-
-    transform-origin: center;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.order-button:hover::after {
-    transform: scaleX(1);
 }
 
 
@@ -806,8 +697,7 @@ section {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 50px;
 
@@ -924,9 +814,7 @@ footer {
 
     background: #050505;
 
-    border-top:
-        1px solid
-        rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 footer .logo {
@@ -963,8 +851,7 @@ footer .copyright {
 
     z-index: 2000;
 
-    background:
-        rgba(0, 0, 0, 0.82);
+    background: rgba(0, 0, 0, 0.82);
 
     display: flex;
 
@@ -995,9 +882,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   POPUP BOX
-========================================= */
+/* POPUP CONTENT */
 
 .popup-content {
     position: relative;
@@ -1019,13 +904,10 @@ footer .copyright {
             #11110f 60%
         );
 
-    border:
-        1px solid
-        rgba(212, 175, 55, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.5);
 
     box-shadow:
-        0 30px 100px
-        rgba(0, 0, 0, 0.8);
+        0 30px 100px rgba(0, 0, 0, 0.8);
 
     transform:
         translateY(20px)
@@ -1050,9 +932,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   CLOSE BUTTON
-========================================= */
+/* CLOSE BUTTON */
 
 .close-popup {
     position: absolute;
@@ -1067,9 +947,7 @@ footer .copyright {
 
     border-radius: 50%;
 
-    border:
-        1px solid
-        rgba(212, 175, 55, 0.5);
+    border: 1px solid rgba(212, 175, 55, 0.5);
 
     background: transparent;
 
@@ -1083,8 +961,8 @@ footer .copyright {
 
     transition:
         transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
+        opacity 0.3s ease,
+        background 0.3s ease;
 }
 
 .close-popup:hover {
@@ -1096,9 +974,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   POPUP BRAND
-========================================= */
+/* POPUP BRAND */
 
 .popup-number {
     color: #d4af37;
@@ -1111,9 +987,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   POPUP TITLE
-========================================= */
+/* POPUP TITLE */
 
 .popup-content h2 {
     font-size: 40px;
@@ -1126,9 +1000,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   POPUP DESCRIPTION
-========================================= */
+/* POPUP DESCRIPTION */
 
 #popup-description {
     color: #aaa;
@@ -1147,12 +1019,10 @@ footer .copyright {
 
 .popup-items {
     border-top:
-        1px solid
-        rgba(255, 255, 255, 0.1);
+        1px solid rgba(255, 255, 255, 0.1);
 
     border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.1);
+        1px solid rgba(255, 255, 255, 0.1);
 
     padding: 25px 0;
 
@@ -1207,9 +1077,7 @@ footer .copyright {
 }
 
 
-/* =========================================
-   POPUP PRICE CONTAINER
-========================================= */
+/* POPUP PRICE CONTAINER */
 
 .popup-price-container {
     display: flex;
@@ -1220,15 +1088,11 @@ footer .copyright {
 
     align-items: flex-start;
 
-    text-align: left;
-
-    min-width: 115px;
+    min-width: 110px;
 }
 
 
-/* =========================================
-   POPUP PRICE
-========================================= */
+/* POPUP PRICE */
 
 #popup-price {
     color: #d4af37;
@@ -1240,20 +1104,16 @@ footer .copyright {
         "Times New Roman",
         serif;
 
-    line-height: 1;
-
     margin-bottom: 7px;
 }
 
 
-/* =========================================
-   POPUP TRANSFER FEE
-========================================= */
+/* POPUP TRANSFER FEE */
 
 #popup-transfer-fee {
     color: #8f897d;
 
-    font-size: 9px;
+    font-size: 10px;
 
     letter-spacing: 1px;
 
@@ -1263,8 +1123,7 @@ footer .copyright {
 #popup-transfer-fee::before {
     content: "• ";
 
-    color:
-        rgba(212, 175, 55, 0.7);
+    color: rgba(212, 175, 55, 0.7);
 }
 
 
@@ -1291,8 +1150,7 @@ body.popup-open {
     background: transparent;
 
     border:
-        1px solid
-        rgba(212, 175, 55, 0.5);
+        1px solid rgba(212, 175, 55, 0.5);
 
     cursor: pointer;
 
@@ -1320,12 +1178,36 @@ body.popup-open {
 
 
 /* =========================================
+   FADE UP ANIMATION
+========================================= */
+
+@keyframes sotraFadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================
    MOBILE NAVIGATION
 ========================================= */
 
 @media (max-width: 768px) {
 
     .navbar {
+
         position: relative;
 
         flex-direction: row;
@@ -1334,16 +1216,17 @@ body.popup-open {
     }
 
 
-    /* MENU BUTTON */
+    /* SHOW MENU */
 
     .menu-toggle {
         display: flex;
     }
 
 
-    /* NAV LINKS */
+    /* MOBILE NAV */
 
     .nav-links {
+
         position: absolute;
 
         top: 100%;
@@ -1356,8 +1239,7 @@ body.popup-open {
             rgba(8, 8, 8, 0.98);
 
         border-bottom:
-            1px solid
-            rgba(212, 175, 55, 0.25);
+            1px solid rgba(212, 175, 55, 0.25);
 
         display: flex;
 
@@ -1384,6 +1266,7 @@ body.popup-open {
     /* OPEN MENU */
 
     .nav-links.active {
+
         max-height: 300px;
 
         padding:
@@ -1393,15 +1276,16 @@ body.popup-open {
     }
 
 
-    /* MENU ITEMS */
-
     .nav-links li {
+
         width: 100%;
 
         text-align: center;
     }
 
+
     .nav-links a {
+
         display: block;
 
         padding: 14px 20px;
@@ -1413,29 +1297,44 @@ body.popup-open {
     /* HAMBURGER → X */
 
     .menu-toggle.active span:nth-child(1) {
+
         transform:
             translateY(6px)
             rotate(45deg);
     }
 
     .menu-toggle.active span:nth-child(2) {
+
         opacity: 0;
     }
 
     .menu-toggle.active span:nth-child(3) {
+
         transform:
             translateY(-6px)
             rotate(-45deg);
     }
 
 
-    /* =====================================
-       MOBILE PRODUCT CARDS
-    ===================================== */
+    /* HERO */
+
+    .hero h1 {
+        letter-spacing: 5px;
+    }
+
+    .hero h2 {
+        letter-spacing: 7px;
+    }
+
+
+    /* BOX GRID */
 
     .boxes-container {
         grid-template-columns: 1fr;
     }
+
+
+    /* IMAGE */
 
     .box-image {
         height: 320px;
@@ -1447,85 +1346,114 @@ body.popup-open {
 
 
     /* =====================================
-       MOBILE PRICE / ORDER AREA
+       MOBILE PRODUCT CARD
     ===================================== */
 
     .box-bottom {
+
         flex-direction: column;
 
         align-items: stretch;
 
-        gap: 20px;
-
-        padding-top: 22px;
+        gap: 18px;
     }
 
+
+    /* PRICE */
 
     .price-container {
+
+        width: 100%;
+
+        min-width: 0;
+
+        text-align: center;
+
         align-items: center;
 
-        text-align: center;
-
-        min-width: auto;
-
-        padding-bottom: 5px;
+        padding:
+            5px 0 12px;
     }
-
-
-    .price-container::before {
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
 
     .price {
-        font-size: 27px;
-    }
 
+        font-size: 23px;
+
+        margin-bottom: 6px;
+    }
 
     .transfer-fee {
-        font-size: 9px;
 
-        margin-top: 8px;
+        font-size: 9px;
     }
 
+
+    /* BUTTON AREA */
 
     .box-buttons {
+
+        display: flex;
+
         flex-direction: column;
 
-        align-items: stretch;
+        align-items: center;
 
-        width: 100%;
+        justify-content: center;
 
         gap: 10px;
+
+        width: 100%;
     }
 
 
-    .details-button,
-    .order-button {
+    /* DETAILS */
+
+    .details-button {
+
         width: 100%;
 
-        text-align: center;
+        max-width: 280px;
 
-        padding: 13px 15px;
+        text-align: center;
     }
 
 
     /* =====================================
-       MOBILE STEPS
+       INSTAGRAM BUTTON FIX
     ===================================== */
 
+    .order-button {
+
+        width: auto !important;
+
+        max-width: 280px;
+
+        min-width: 210px;
+
+        display: inline-block;
+
+        text-align: center;
+
+        padding:
+            12px 20px;
+
+        font-size: 9px;
+
+        white-space: nowrap;
+    }
+
+
+    /* STEPS */
+
     .steps-container {
+
         grid-template-columns: 1fr;
 
         gap: 45px;
     }
 
 
-    /* =====================================
-       MOBILE TITLES
-    ===================================== */
+    /* TITLES */
 
     .section-title h2 {
         font-size: 36px;
@@ -1536,15 +1464,15 @@ body.popup-open {
     }
 
 
-    /* =====================================
-       MOBILE CONTACT
-    ===================================== */
+    /* CONTACT */
 
     .contact-buttons {
+
         flex-direction: column;
 
         align-items: center;
     }
+
 }
 
 
@@ -1560,6 +1488,7 @@ body.popup-open {
 
 
     .popup-content {
+
         padding:
             45px 25px 30px;
     }
@@ -1571,6 +1500,7 @@ body.popup-open {
 
 
     .popup-bottom {
+
         flex-direction: column;
 
         align-items: stretch;
@@ -1578,72 +1508,20 @@ body.popup-open {
 
 
     .popup-price-container {
+
         align-items: center;
 
         text-align: center;
     }
 
 
-    #popup-price {
-        font-size: 26px;
-    }
-
-
-    #popup-transfer-fee {
-        font-size: 9px;
-    }
-
-
     .popup-bottom .gold-button {
+
         text-align: center;
-    }
-}
 
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 400px) {
-
-    .box-info {
-        padding: 22px;
+        width: 100%;
     }
 
-    .price {
-        font-size: 25px;
-    }
-
-    .transfer-fee {
-        font-size: 8px;
-    }
-
-    .popup-content {
-        padding:
-            42px 20px 25px;
-    }
-}
-
-
-/* =========================================
-   SUBTLE ANIMATIONS
-========================================= */
-
-@keyframes sotraFadeUp {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
 }
 
 
@@ -1669,5 +1547,5 @@ body.popup-open {
         scroll-behavior:
             auto !important;
     }
+
 }
-```
