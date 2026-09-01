@@ -171,7 +171,7 @@ const boxes = [
     ],
 
     images: [
-        "images/pack7.jpg"
+        "images/Pack7.jpg"
     ],
 
     featured: false
@@ -193,8 +193,8 @@ const boxes = [
     ],
 
     images: [
-        "images/pack8-1.jpg",
-        "images/pack8-2.jpg"
+        "images/Pack8-1.jpg",
+        "images/Pack8-2.jpg"
     ],
 
     featured: false
