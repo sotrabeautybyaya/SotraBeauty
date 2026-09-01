@@ -1,4 +1,3 @@
-```javascript
 /* =========================================
    SOTRA BEAUTY BY AYA
    MAIN JAVASCRIPT
@@ -33,7 +32,6 @@ const accessoryBoxes = [
         featured: true
     },
 
-
     {
         id: 2,
         name: "Accessorie Box 02",
@@ -56,7 +54,6 @@ const accessoryBoxes = [
         featured: false
     },
 
-
     {
         id: 3,
         name: "Accessorie Box 03",
@@ -77,7 +74,6 @@ const accessoryBoxes = [
 
         featured: false
     },
-
 
     {
         id: 4,
@@ -100,7 +96,6 @@ const accessoryBoxes = [
         featured: false
     },
 
-
     {
         id: 5,
         name: "Accessorie Box 05",
@@ -121,7 +116,6 @@ const accessoryBoxes = [
 
         featured: false
     },
-
 
     {
         id: 6,
@@ -144,7 +138,6 @@ const accessoryBoxes = [
         featured: false
     },
 
-
     {
         id: 7,
         name: "Accessorie Box 07",
@@ -165,7 +158,6 @@ const accessoryBoxes = [
 
         featured: false
     },
-
 
     {
         id: 8,
@@ -190,7 +182,6 @@ const accessoryBoxes = [
     }
 
 ];
-
 
 
 /* =========================================
@@ -225,7 +216,6 @@ const cosmeticBoxes = [
         featured: false
     },
 
-
     {
         id: 10,
         name: "Cosmetic Box 10",
@@ -253,7 +243,6 @@ const cosmeticBoxes = [
         featured: false
     },
 
-
     {
         id: 11,
         name: "Cosmetic Box 11",
@@ -280,14 +269,12 @@ const cosmeticBoxes = [
 ];
 
 
-
 /* =========================================
    HIJAB BOXES
    EMPTY FOR NOW
 ========================================= */
 
 const hijabBoxes = [];
-
 
 
 /* =========================================
@@ -298,110 +285,8 @@ const instagramURL =
     "https://www.instagram.com/sotra_beauty_by_aya/";
 
 
-const instagramAppURL =
-    "instagram://user?username=sotra_beauty_by_aya";
-
-
-
-/* =========================================
-   OPEN INSTAGRAM
-   MOBILE → TRY INSTAGRAM APP
-   DESKTOP → OPEN INSTAGRAM WEBSITE
-========================================= */
-
-function openInstagram(event) {
-
-    if (event) {
-        event.preventDefault();
-    }
-
-
-    const isMobile =
-        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-
-    /* =========================================
-       DESKTOP
-    ========================================= */
-
-    if (!isMobile) {
-
-        window.open(
-            instagramURL,
-            "_blank",
-            "noopener,noreferrer"
-        );
-
-        return;
-
-    }
-
-
-    /* =========================================
-       MOBILE
-       TRY INSTAGRAM APP FIRST
-    ========================================= */
-
-    let appOpened = false;
-
-
-    const handleVisibilityChange = () => {
-
-        if (document.hidden) {
-
-            appOpened = true;
-
-            document.removeEventListener(
-                "visibilitychange",
-                handleVisibilityChange
-            );
-
-        }
-
-    };
-
-
-    document.addEventListener(
-        "visibilitychange",
-        handleVisibilityChange
-    );
-
-
-    /* Try to open Instagram application */
-
-    window.location.href =
-        instagramAppURL;
-
-
-    /* =========================================
-       FALLBACK
-       IF INSTAGRAM APP IS NOT INSTALLED
-    ========================================= */
-
-    setTimeout(() => {
-
-        document.removeEventListener(
-            "visibilitychange",
-            handleVisibilityChange
-        );
-
-
-        if (!appOpened) {
-
-            window.location.href =
-                instagramURL;
-
-        }
-
-    }, 1500);
-
-}
-
-
-
 /* =========================================
    ALL BOXES
-   Used for popup
 ========================================= */
 
 const allBoxes = [
@@ -411,20 +296,16 @@ const allBoxes = [
 ];
 
 
-
 /* =========================================
    CREATE PRODUCT CARD
 ========================================= */
 
 function createProductCard(box) {
 
-    const card =
-        document.createElement("div");
+    const card = document.createElement("div");
 
     card.classList.add("box-card");
 
-
-    /* FEATURED LABEL */
 
     let featuredLabel = "";
 
@@ -439,13 +320,8 @@ function createProductCard(box) {
     }
 
 
-    /* FIRST IMAGE */
+    const firstImage = box.images[0];
 
-    const firstImage =
-        box.images[0];
-
-
-    /* CARD HTML */
 
     card.innerHTML = `
 
@@ -498,7 +374,9 @@ function createProductCard(box) {
 
                     <a
                         href="${instagramURL}"
-                        class="gold-button order-button instagram-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="gold-button order-button"
                     >
                         ORDER ON INSTAGRAM
                     </a>
@@ -513,14 +391,13 @@ function createProductCard(box) {
 
 
     /* =========================================
-       AUTOMATIC IMAGE SLIDESHOW
+       IMAGE SLIDESHOW
     ========================================= */
 
     if (box.images.length > 1) {
 
         const image =
             card.querySelector(".box-product-image");
-
 
         let currentImage = 0;
 
@@ -531,9 +408,7 @@ function createProductCard(box) {
                 (currentImage + 1) % box.images.length;
 
 
-            image.classList.add(
-                "image-changing"
-            );
+            image.classList.add("image-changing");
 
 
             setTimeout(() => {
@@ -541,13 +416,9 @@ function createProductCard(box) {
                 image.src =
                     box.images[currentImage];
 
-
-                image.classList.remove(
-                    "image-changing"
-                );
+                image.classList.remove("image-changing");
 
             }, 400);
-
 
         }, 5000);
 
@@ -557,7 +428,6 @@ function createProductCard(box) {
     return card;
 
 }
-
 
 
 /* =========================================
@@ -580,15 +450,13 @@ function displayAccessories() {
 
     accessoryBoxes.forEach((box) => {
 
-        const card =
-            createProductCard(box);
-
-        container.appendChild(card);
+        container.appendChild(
+            createProductCard(box)
+        );
 
     });
 
 }
-
 
 
 /* =========================================
@@ -611,15 +479,13 @@ function displayCosmetics() {
 
     cosmeticBoxes.forEach((box) => {
 
-        const card =
-            createProductCard(box);
-
-        container.appendChild(card);
+        container.appendChild(
+            createProductCard(box)
+        );
 
     });
 
 }
-
 
 
 /* =========================================
@@ -642,19 +508,17 @@ function displayHijabs() {
 
     hijabBoxes.forEach((box) => {
 
-        const card =
-            createProductCard(box);
-
-        container.appendChild(card);
+        container.appendChild(
+            createProductCard(box)
+        );
 
     });
 
 }
 
 
-
 /* =========================================
-   DISPLAY ALL SECTIONS
+   DISPLAY PRODUCTS
 ========================================= */
 
 displayAccessories();
@@ -662,7 +526,6 @@ displayAccessories();
 displayCosmetics();
 
 displayHijabs();
-
 
 
 /* =========================================
@@ -694,8 +557,7 @@ popup.innerHTML = `
         </h2>
 
 
-        <p id="popup-description">
-        </p>
+        <p id="popup-description"></p>
 
 
         <div class="popup-items">
@@ -705,22 +567,22 @@ popup.innerHTML = `
             </h3>
 
 
-            <ul id="popup-items-list">
-            </ul>
+            <ul id="popup-items-list"></ul>
 
         </div>
 
 
         <div class="popup-bottom">
 
-            <span id="popup-price">
-            </span>
+            <span id="popup-price"></span>
 
 
             <a
                 href="${instagramURL}"
-                class="gold-button instagram-button"
+                target="_blank"
+                rel="noopener noreferrer"
                 id="popup-instagram"
+                class="gold-button"
             >
                 ORDER ON INSTAGRAM
             </a>
@@ -733,7 +595,6 @@ popup.innerHTML = `
 
 
 document.body.appendChild(popup);
-
 
 
 /* =========================================
@@ -759,122 +620,74 @@ const closePopup =
     document.querySelector(".close-popup");
 
 
-
 /* =========================================
-   INSTAGRAM BUTTON EVENTS
-========================================= */
-
-function setupInstagramButtons() {
-
-    const instagramButtons =
-        document.querySelectorAll(
-            ".instagram-button"
-        );
-
-
-    instagramButtons.forEach((button) => {
-
-        button.addEventListener(
-            "click",
-            openInstagram
-        );
-
-    });
-
-}
-
-
-setupInstagramButtons();
-
-
-
-/* =========================================
-   ADD VIEW DETAILS EVENTS
+   VIEW DETAILS
 ========================================= */
 
 function addDetailButtonEvents() {
 
     const detailButtons =
-        document.querySelectorAll(
-            ".details-button"
-        );
+        document.querySelectorAll(".details-button");
 
 
     detailButtons.forEach((button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+        button.addEventListener("click", () => {
 
-                const boxID =
-                    Number(button.dataset.id);
+            const boxID =
+                Number(button.dataset.id);
 
 
-                const box =
-                    allBoxes.find(
-                        item => item.id === boxID
-                    );
-
-
-                if (!box) {
-                    return;
-                }
-
-
-                /* BOX NAME */
-
-                popupName.textContent =
-                    box.name;
-
-
-                /* DESCRIPTION */
-
-                popupDescription.textContent =
-                    box.description;
-
-
-                /* PRICE */
-
-                popupPrice.textContent =
-                    box.price;
-
-
-                /* ITEMS */
-
-                popupItemsList.innerHTML = "";
-
-
-                box.items.forEach((item) => {
-
-                    const li =
-                        document.createElement("li");
-
-
-                    li.textContent =
-                        item;
-
-
-                    popupItemsList.appendChild(li);
-
-                });
-
-
-                /* INSTAGRAM */
-
-                popupInstagram.href =
-                    instagramURL;
-
-
-                /* OPEN POPUP */
-
-                popup.classList.add("active");
-
-                document.body.classList.add(
-                    "popup-open"
+            const box =
+                allBoxes.find(
+                    item => item.id === boxID
                 );
 
+
+            if (!box) {
+                return;
             }
-        );
+
+
+            popupName.textContent =
+                box.name;
+
+
+            popupDescription.textContent =
+                box.description;
+
+
+            popupPrice.textContent =
+                box.price;
+
+
+            popupItemsList.innerHTML = "";
+
+
+            box.items.forEach((item) => {
+
+                const li =
+                    document.createElement("li");
+
+                li.textContent =
+                    item;
+
+                popupItemsList.appendChild(li);
+
+            });
+
+
+            popupInstagram.href =
+                instagramURL;
+
+
+            popup.classList.add("active");
+
+            document.body.classList.add(
+                "popup-open"
+            );
+
+        });
 
     });
 
@@ -884,76 +697,61 @@ function addDetailButtonEvents() {
 addDetailButtonEvents();
 
 
-
 /* =========================================
    CLOSE POPUP
 ========================================= */
 
-closePopup.addEventListener(
-    "click",
-    () => {
+if (closePopup) {
 
-        popup.classList.remove(
-            "active"
-        );
+    closePopup.addEventListener("click", () => {
+
+        popup.classList.remove("active");
 
         document.body.classList.remove(
             "popup-open"
         );
 
-    }
-);
+    });
 
+}
 
 
 /* =========================================
    CLICK OUTSIDE POPUP
 ========================================= */
 
-popup.addEventListener(
-    "click",
-    (event) => {
+popup.addEventListener("click", (event) => {
 
-        if (event.target === popup) {
+    if (event.target === popup) {
 
-            popup.classList.remove(
-                "active"
-            );
+        popup.classList.remove("active");
 
-            document.body.classList.remove(
-                "popup-open"
-            );
-
-        }
+        document.body.classList.remove(
+            "popup-open"
+        );
 
     }
-);
 
+});
 
 
 /* =========================================
    ESCAPE KEY
 ========================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+document.addEventListener("keydown", (event) => {
 
-        if (event.key === "Escape") {
+    if (event.key === "Escape") {
 
-            popup.classList.remove(
-                "active"
-            );
+        popup.classList.remove("active");
 
-            document.body.classList.remove(
-                "popup-open"
-            );
-
-        }
+        document.body.classList.remove(
+            "popup-open"
+        );
 
     }
-);
 
+});
 
 
 /* =========================================
@@ -969,60 +767,42 @@ const navLinks =
 
 if (menuToggle && navLinks) {
 
-    menuToggle.addEventListener(
-        "click",
-        () => {
+    menuToggle.addEventListener("click", () => {
 
-            menuToggle.classList.toggle(
-                "active"
-            );
+        menuToggle.classList.toggle("active");
 
-            navLinks.classList.toggle(
-                "active"
-            );
+        navLinks.classList.toggle("active");
 
-        }
-    );
+    });
 
 }
 
 
-
 /* =========================================
-   CLOSE MOBILE MENU AFTER LINK CLICK
+   CLOSE MOBILE MENU
 ========================================= */
 
 const navigationLinks =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
+    document.querySelectorAll(".nav-links a");
 
 
 navigationLinks.forEach((link) => {
 
-    link.addEventListener(
-        "click",
-        () => {
+    link.addEventListener("click", () => {
 
-            if (menuToggle) {
+        if (menuToggle) {
 
-                menuToggle.classList.remove(
-                    "active"
-                );
-
-            }
-
-
-            if (navLinks) {
-
-                navLinks.classList.remove(
-                    "active"
-                );
-
-            }
+            menuToggle.classList.remove("active");
 
         }
-    );
+
+
+        if (navLinks) {
+
+            navLinks.classList.remove("active");
+
+        }
+
+    });
 
 });
-```
