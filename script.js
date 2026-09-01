@@ -1,3 +1,4 @@
+```javascript
 /* =========================================
    SOTRA BEAUTY BY AYA
    MAIN JAVASCRIPT
@@ -297,10 +298,110 @@ const instagramURL =
     "https://www.instagram.com/sotra_beauty_by_aya/";
 
 
+const instagramAppURL =
+    "instagram://user?username=sotra_beauty_by_aya";
+
+
+
+/* =========================================
+   OPEN INSTAGRAM
+   MOBILE → TRY INSTAGRAM APP
+   DESKTOP → OPEN INSTAGRAM WEBSITE
+========================================= */
+
+function openInstagram(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    const isMobile =
+        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+
+    /* =========================================
+       DESKTOP
+    ========================================= */
+
+    if (!isMobile) {
+
+        window.open(
+            instagramURL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+        return;
+
+    }
+
+
+    /* =========================================
+       MOBILE
+       TRY INSTAGRAM APP FIRST
+    ========================================= */
+
+    let appOpened = false;
+
+
+    const handleVisibilityChange = () => {
+
+        if (document.hidden) {
+
+            appOpened = true;
+
+            document.removeEventListener(
+                "visibilitychange",
+                handleVisibilityChange
+            );
+
+        }
+
+    };
+
+
+    document.addEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+    );
+
+
+    /* Try to open Instagram application */
+
+    window.location.href =
+        instagramAppURL;
+
+
+    /* =========================================
+       FALLBACK
+       IF INSTAGRAM APP IS NOT INSTALLED
+    ========================================= */
+
+    setTimeout(() => {
+
+        document.removeEventListener(
+            "visibilitychange",
+            handleVisibilityChange
+        );
+
+
+        if (!appOpened) {
+
+            window.location.href =
+                instagramURL;
+
+        }
+
+    }, 1500);
+
+}
+
+
 
 /* =========================================
    ALL BOXES
-   Used for the popup
+   Used for popup
 ========================================= */
 
 const allBoxes = [
@@ -397,9 +498,7 @@ function createProductCard(box) {
 
                     <a
                         href="${instagramURL}"
-                        target="_self"
-                        rel="noopener noreferrer"
-                        class="gold-button order-button"
+                        class="gold-button order-button instagram-button"
                     >
                         ORDER ON INSTAGRAM
                     </a>
@@ -432,9 +531,9 @@ function createProductCard(box) {
                 (currentImage + 1) % box.images.length;
 
 
-            /* FADE OUT */
-
-            image.classList.add("image-changing");
+            image.classList.add(
+                "image-changing"
+            );
 
 
             setTimeout(() => {
@@ -443,9 +542,9 @@ function createProductCard(box) {
                     box.images[currentImage];
 
 
-                /* FADE IN */
-
-                image.classList.remove("image-changing");
+                image.classList.remove(
+                    "image-changing"
+                );
 
             }, 400);
 
@@ -620,10 +719,8 @@ popup.innerHTML = `
 
             <a
                 href="${instagramURL}"
-               target="_self"
-                rel="noopener noreferrer"
+                class="gold-button instagram-button"
                 id="popup-instagram"
-                class="gold-button"
             >
                 ORDER ON INSTAGRAM
             </a>
@@ -664,81 +761,120 @@ const closePopup =
 
 
 /* =========================================
+   INSTAGRAM BUTTON EVENTS
+========================================= */
+
+function setupInstagramButtons() {
+
+    const instagramButtons =
+        document.querySelectorAll(
+            ".instagram-button"
+        );
+
+
+    instagramButtons.forEach((button) => {
+
+        button.addEventListener(
+            "click",
+            openInstagram
+        );
+
+    });
+
+}
+
+
+setupInstagramButtons();
+
+
+
+/* =========================================
    ADD VIEW DETAILS EVENTS
 ========================================= */
 
 function addDetailButtonEvents() {
 
     const detailButtons =
-        document.querySelectorAll(".details-button");
+        document.querySelectorAll(
+            ".details-button"
+        );
 
 
     detailButtons.forEach((button) => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const boxID =
-                Number(button.dataset.id);
-
-
-            const box =
-                allBoxes.find(item => item.id === boxID);
+                const boxID =
+                    Number(button.dataset.id);
 
 
-            if (!box) {
-                return;
+                const box =
+                    allBoxes.find(
+                        item => item.id === boxID
+                    );
+
+
+                if (!box) {
+                    return;
+                }
+
+
+                /* BOX NAME */
+
+                popupName.textContent =
+                    box.name;
+
+
+                /* DESCRIPTION */
+
+                popupDescription.textContent =
+                    box.description;
+
+
+                /* PRICE */
+
+                popupPrice.textContent =
+                    box.price;
+
+
+                /* ITEMS */
+
+                popupItemsList.innerHTML = "";
+
+
+                box.items.forEach((item) => {
+
+                    const li =
+                        document.createElement("li");
+
+
+                    li.textContent =
+                        item;
+
+
+                    popupItemsList.appendChild(li);
+
+                });
+
+
+                /* INSTAGRAM */
+
+                popupInstagram.href =
+                    instagramURL;
+
+
+                /* OPEN POPUP */
+
+                popup.classList.add("active");
+
+                document.body.classList.add(
+                    "popup-open"
+                );
+
             }
-
-
-            /* BOX NAME */
-
-            popupName.textContent =
-                box.name;
-
-
-            /* DESCRIPTION */
-
-            popupDescription.textContent =
-                box.description;
-
-
-            /* PRICE */
-
-            popupPrice.textContent =
-                box.price;
-
-
-            /* ITEMS */
-
-            popupItemsList.innerHTML = "";
-
-
-            box.items.forEach((item) => {
-
-                const li =
-                    document.createElement("li");
-
-                li.textContent =
-                    item;
-
-                popupItemsList.appendChild(li);
-
-            });
-
-
-            /* INSTAGRAM */
-
-            popupInstagram.href =
-                instagramURL;
-
-
-            /* OPEN POPUP */
-
-            popup.classList.add("active");
-
-            document.body.classList.add("popup-open");
-
-        });
+        );
 
     });
 
@@ -753,13 +889,20 @@ addDetailButtonEvents();
    CLOSE POPUP
 ========================================= */
 
-closePopup.addEventListener("click", () => {
+closePopup.addEventListener(
+    "click",
+    () => {
 
-    popup.classList.remove("active");
+        popup.classList.remove(
+            "active"
+        );
 
-    document.body.classList.remove("popup-open");
+        document.body.classList.remove(
+            "popup-open"
+        );
 
-});
+    }
+);
 
 
 
@@ -767,17 +910,24 @@ closePopup.addEventListener("click", () => {
    CLICK OUTSIDE POPUP
 ========================================= */
 
-popup.addEventListener("click", (event) => {
+popup.addEventListener(
+    "click",
+    (event) => {
 
-    if (event.target === popup) {
+        if (event.target === popup) {
 
-        popup.classList.remove("active");
+            popup.classList.remove(
+                "active"
+            );
 
-        document.body.classList.remove("popup-open");
+            document.body.classList.remove(
+                "popup-open"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 
@@ -785,17 +935,24 @@ popup.addEventListener("click", (event) => {
    ESCAPE KEY
 ========================================= */
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (event.key === "Escape") {
+        if (event.key === "Escape") {
 
-        popup.classList.remove("active");
+            popup.classList.remove(
+                "active"
+            );
 
-        document.body.classList.remove("popup-open");
+            document.body.classList.remove(
+                "popup-open"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 
@@ -812,13 +969,20 @@ const navLinks =
 
 if (menuToggle && navLinks) {
 
-    menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-        menuToggle.classList.toggle("active");
+            menuToggle.classList.toggle(
+                "active"
+            );
 
-        navLinks.classList.toggle("active");
+            navLinks.classList.toggle(
+                "active"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -829,21 +993,36 @@ if (menuToggle && navLinks) {
 ========================================= */
 
 const navigationLinks =
-    document.querySelectorAll(".nav-links a");
+    document.querySelectorAll(
+        ".nav-links a"
+    );
 
 
 navigationLinks.forEach((link) => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener(
+        "click",
+        () => {
 
-        if (menuToggle) {
-            menuToggle.classList.remove("active");
+            if (menuToggle) {
+
+                menuToggle.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            if (navLinks) {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+
         }
-
-        if (navLinks) {
-            navLinks.classList.remove("active");
-        }
-
-    });
+    );
 
 });
+```
