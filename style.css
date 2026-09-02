@@ -34,27 +34,24 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-
     z-index: 1000;
 
     background: rgba(8, 8, 8, 0.94);
 
-    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    border-bottom:
+        1px solid rgba(212, 175, 55, 0.25);
 
     backdrop-filter: blur(10px);
 }
 
 .navbar {
     max-width: 1200px;
-
     margin: auto;
 
     padding: 18px 30px;
 
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 }
 
@@ -130,7 +127,6 @@ header {
 ========================================= */
 
 .hero {
-
     min-height: calc(100vh - 100px);
 
     display: flex;
@@ -139,14 +135,18 @@ header {
 
     justify-content: flex-start;
 
-    padding: 0 0 70px 6%;
+    padding: 0 0 50px 6%;
+
+    background-color: #080808;
 
     background-image:
         url("images/home-background.jpg");
 
-    background-size: cover;
+    /* SHOW THE FULL IMAGE */
+    background-size: contain;
 
-    background-position: center center;
+    background-position:
+        center center;
 
     background-repeat: no-repeat;
 
@@ -159,7 +159,6 @@ header {
 /* HERO OVERLAY */
 
 .hero::before {
-
     content: "";
 
     position: absolute;
@@ -169,8 +168,8 @@ header {
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.08),
-            rgba(0, 0, 0, 0.02)
+            rgba(0, 0, 0, 0.04),
+            rgba(0, 0, 0, 0.01)
         );
 
     pointer-events: none;
@@ -180,7 +179,6 @@ header {
 /* HERO CONTENT */
 
 .hero-content {
-
     position: relative;
 
     z-index: 2;
@@ -240,7 +238,6 @@ header {
 ========================================= */
 
 .instagram-hero-button {
-
     display: inline-flex;
 
     align-items: center;
@@ -253,9 +250,11 @@ header {
 
     padding: 17px 30px;
 
-    border: 1px solid #d4af37;
+    border:
+        1px solid #d4af37;
 
-    background: rgba(5, 5, 5, 0.72);
+    background:
+        rgba(5, 5, 5, 0.72);
 
     color: #d4af37;
 
@@ -278,12 +277,12 @@ header {
 }
 
 .instagram-hero-button:hover {
-
     background: #d4af37;
 
     color: #080808;
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
         0 8px 30px
@@ -291,7 +290,6 @@ header {
 }
 
 .instagram-icon {
-
     font-family: Arial, sans-serif;
 
     font-size: 27px;
@@ -300,7 +298,6 @@ header {
 }
 
 .instagram-arrow {
-
     font-size: 24px;
 
     margin-left: 5px;
@@ -311,8 +308,8 @@ header {
 
 .instagram-hero-button:hover
 .instagram-arrow {
-
-    transform: translateX(5px);
+    transform:
+        translateX(5px);
 }
 
 
@@ -321,12 +318,12 @@ header {
 ========================================= */
 
 .gold-button {
-
     display: inline-block;
 
     padding: 15px 34px;
 
-    border: 1px solid #d4af37;
+    border:
+        1px solid #d4af37;
 
     color: #d4af37;
 
@@ -343,19 +340,21 @@ header {
 }
 
 .gold-button:hover {
-
     background: #d4af37;
 
     color: #080808;
 
     box-shadow:
-        0 0 25px rgba(212, 175, 55, 0.25);
+        0 0 25px
+        rgba(212, 175, 55, 0.25);
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .gold-button:active {
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
@@ -368,7 +367,6 @@ section {
 }
 
 .section-title {
-
     text-align: center;
 
     margin-bottom: 55px;
@@ -378,7 +376,6 @@ section {
 }
 
 .section-title p {
-
     color: #d4af37;
 
     font-size: 11px;
@@ -389,7 +386,6 @@ section {
 }
 
 .section-title h2 {
-
     font-size: 44px;
 
     font-weight: normal;
@@ -403,7 +399,6 @@ section {
 ========================================= */
 
 .intro {
-
     text-align: center;
 
     background: #0b0b0b;
@@ -412,7 +407,6 @@ section {
 }
 
 .intro-text {
-
     max-width: 650px;
 
     margin: auto;
@@ -437,7 +431,6 @@ section {
 /* BOX GRID */
 
 .boxes-container {
-
     max-width: 1150px;
 
     margin: auto;
@@ -456,7 +449,6 @@ section {
 ========================================= */
 
 .box-card {
-
     background:
         linear-gradient(
             145deg,
@@ -480,7 +472,6 @@ section {
 }
 
 .box-card:hover {
-
     transform:
         translateY(-7px);
 
@@ -498,7 +489,6 @@ section {
 ========================================= */
 
 .box-image {
-
     height: 420px;
 
     position: relative;
@@ -525,7 +515,6 @@ section {
 ========================================= */
 
 .featured-label {
-
     position: absolute;
 
     top: 18px;
@@ -553,7 +542,6 @@ section {
 ========================================= */
 
 .box-product-image {
-
     width: 100%;
 
     height: 100%;
@@ -571,7 +559,6 @@ section {
 
 .box-card:hover
 .box-product-image {
-
     transform:
         scale(1.04);
 }
@@ -586,7 +573,6 @@ section {
 ========================================= */
 
 .image-placeholder {
-
     width: 82%;
 
     height: 82%;
@@ -605,7 +591,6 @@ section {
 }
 
 .image-placeholder span {
-
     color: #8d877b;
 
     font-size: 11px;
@@ -619,12 +604,10 @@ section {
 ========================================= */
 
 .box-info {
-
     padding: 30px;
 }
 
 .box-number {
-
     color: #d4af37;
 
     font-size: 10px;
@@ -635,7 +618,6 @@ section {
 }
 
 .box-info h3 {
-
     font-size: 30px;
 
     font-weight: normal;
@@ -644,7 +626,6 @@ section {
 }
 
 .box-description {
-
     color: #999;
 
     font-size: 14px;
@@ -660,7 +641,6 @@ section {
 ========================================= */
 
 .box-bottom {
-
     display: flex;
 
     justify-content:
@@ -687,7 +667,6 @@ section {
 ========================================= */
 
 .price-container {
-
     display: flex;
 
     flex-direction: column;
@@ -705,7 +684,6 @@ section {
 /* MAIN PRICE */
 
 .price {
-
     color: #d4af37;
 
     font-size: 22px;
@@ -727,7 +705,6 @@ section {
 /* TRANSFER FEE */
 
 .transfer-fee {
-
     color: #8f897d;
 
     font-size: 9px;
@@ -743,7 +720,6 @@ section {
 }
 
 .transfer-fee::before {
-
     content: "• ";
 
     color:
@@ -754,7 +730,6 @@ section {
 /* TOTAL PRICE */
 
 .total-price {
-
     color: #777;
 
     font-size: 9px;
@@ -772,7 +747,6 @@ section {
 ========================================= */
 
 .box-buttons {
-
     display: flex;
 
     align-items: center;
@@ -786,7 +760,6 @@ section {
 /* DETAILS BUTTON */
 
 .details-button {
-
     background: transparent;
 
     border:
@@ -811,7 +784,6 @@ section {
 }
 
 .details-button:hover {
-
     background: #d4af37;
 
     color: #111;
@@ -824,7 +796,6 @@ section {
 /* ORDER BUTTON */
 
 .order-button {
-
     padding: 11px 15px;
 
     font-size: 9px;
@@ -842,7 +813,6 @@ section {
 }
 
 .steps-container {
-
     max-width: 1000px;
 
     margin: auto;
@@ -858,20 +828,17 @@ section {
 }
 
 .step {
-
     transition:
         transform 0.35s ease,
         opacity 0.35s ease;
 }
 
 .step:hover {
-
     transform:
         translateY(-5px);
 }
 
 .step span {
-
     color: #d4af37;
 
     font-size: 12px;
@@ -880,8 +847,8 @@ section {
 }
 
 .step h3 {
-
-    margin: 18px 0 12px;
+    margin:
+        18px 0 12px;
 
     font-size: 22px;
 
@@ -889,7 +856,6 @@ section {
 }
 
 .step p {
-
     color: #888;
 
     font-size: 14px;
@@ -903,7 +869,6 @@ section {
 ========================================= */
 
 .about {
-
     text-align: center;
 
     background:
@@ -914,14 +879,12 @@ section {
 }
 
 .about-content {
-
     max-width: 750px;
 
     margin: auto;
 }
 
 .about h2 {
-
     font-size: 45px;
 
     font-weight: normal;
@@ -930,7 +893,6 @@ section {
 }
 
 .about-content p:not(.small-title) {
-
     color: #aaa;
 
     line-height: 1.9;
@@ -946,21 +908,18 @@ section {
 ========================================= */
 
 .contact {
-
     text-align: center;
 
     background: #111;
 }
 
 .contact-text {
-
     color: #999;
 
     margin-bottom: 30px;
 }
 
 .contact-buttons {
-
     display: flex;
 
     justify-content: center;
@@ -974,7 +933,6 @@ section {
 ========================================= */
 
 footer {
-
     text-align: center;
 
     padding: 60px 20px;
@@ -987,14 +945,12 @@ footer {
 }
 
 footer .logo {
-
     display: inline-block;
 
     margin-bottom: 20px;
 }
 
 footer > p {
-
     color: #777;
 
     font-size: 14px;
@@ -1003,7 +959,6 @@ footer > p {
 }
 
 footer .copyright {
-
     margin-top: 25px;
 
     font-size: 11px;
@@ -1017,7 +972,6 @@ footer .copyright {
 ========================================= */
 
 .product-popup {
-
     position: fixed;
 
     inset: 0;
@@ -1051,7 +1005,6 @@ footer .copyright {
 /* POPUP ACTIVE */
 
 .product-popup.active {
-
     opacity: 1;
 
     visibility: visible;
@@ -1061,7 +1014,6 @@ footer .copyright {
 /* POPUP CONTENT */
 
 .popup-content {
-
     position: relative;
 
     width: 100%;
@@ -1105,7 +1057,6 @@ footer .copyright {
 
 .product-popup.active
 .popup-content {
-
     transform:
         translateY(0)
         scale(1);
@@ -1117,7 +1068,6 @@ footer .copyright {
 /* CLOSE BUTTON */
 
 .close-popup {
-
     position: absolute;
 
     top: 18px;
@@ -1151,7 +1101,6 @@ footer .copyright {
 }
 
 .close-popup:hover {
-
     background: #d4af37;
 
     color: #111;
@@ -1164,7 +1113,6 @@ footer .copyright {
 /* POPUP BRAND */
 
 .popup-number {
-
     color: #d4af37;
 
     font-size: 10px;
@@ -1178,7 +1126,6 @@ footer .copyright {
 /* POPUP TITLE */
 
 .popup-content h2 {
-
     font-size: 40px;
 
     font-weight: normal;
@@ -1192,7 +1139,6 @@ footer .copyright {
 /* POPUP DESCRIPTION */
 
 #popup-description {
-
     color: #aaa;
 
     line-height: 1.8;
@@ -1208,7 +1154,6 @@ footer .copyright {
 ========================================= */
 
 .popup-price-details {
-
     border-top:
         1px solid
         rgba(255, 255, 255, 0.1);
@@ -1219,7 +1164,6 @@ footer .copyright {
 }
 
 .popup-price-row {
-
     display: flex;
 
     justify-content:
@@ -1235,7 +1179,6 @@ footer .copyright {
 }
 
 .popup-price-row strong {
-
     color: #d4af37;
 
     font-family:
@@ -1245,7 +1188,6 @@ footer .copyright {
 }
 
 .popup-total-row {
-
     display: flex;
 
     justify-content:
@@ -1269,7 +1211,6 @@ footer .copyright {
 }
 
 .popup-total-row strong {
-
     font-size: 20px;
 
     color: #d4af37;
@@ -1281,7 +1222,6 @@ footer .copyright {
 ========================================= */
 
 .popup-items {
-
     border-top:
         1px solid
         rgba(255, 255, 255, 0.1);
@@ -1296,7 +1236,6 @@ footer .copyright {
 }
 
 .popup-items h3 {
-
     color: #d4af37;
 
     font-size: 13px;
@@ -1309,12 +1248,10 @@ footer .copyright {
 }
 
 .popup-items ul {
-
     list-style: none;
 }
 
 .popup-items li {
-
     color: #ccc;
 
     font-size: 14px;
@@ -1323,7 +1260,6 @@ footer .copyright {
 }
 
 .popup-items li::before {
-
     content: "✦";
 
     color: #d4af37;
@@ -1337,7 +1273,6 @@ footer .copyright {
 ========================================= */
 
 .popup-bottom {
-
     display: flex;
 
     justify-content:
@@ -1352,7 +1287,6 @@ footer .copyright {
 /* POPUP PRICE CONTAINER */
 
 .popup-price-container {
-
     display: flex;
 
     flex-direction: column;
@@ -1368,7 +1302,6 @@ footer .copyright {
 /* POPUP PRICE */
 
 #popup-price {
-
     color: #d4af37;
 
     font-size: 25px;
@@ -1385,7 +1318,6 @@ footer .copyright {
 /* POPUP TRANSFER FEE */
 
 #popup-transfer-fee {
-
     color: #8f897d;
 
     font-size: 10px;
@@ -1396,7 +1328,6 @@ footer .copyright {
 }
 
 #popup-transfer-fee::before {
-
     content: "• ";
 
     color:
@@ -1418,7 +1349,6 @@ body.popup-open {
 ========================================= */
 
 .menu-toggle {
-
     display: none;
 
     width: 42px;
@@ -1443,7 +1373,6 @@ body.popup-open {
 }
 
 .menu-toggle span {
-
     display: block;
 
     width: 100%;
@@ -1464,7 +1393,6 @@ body.popup-open {
 @keyframes sotraFadeUp {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -1472,7 +1400,6 @@ body.popup-open {
     }
 
     to {
-
         opacity: 1;
 
         transform:
@@ -1488,7 +1415,6 @@ body.popup-open {
 @media (max-width: 768px) {
 
     .navbar {
-
         position: relative;
 
         flex-direction: row;
@@ -1500,7 +1426,6 @@ body.popup-open {
     /* SHOW MENU */
 
     .menu-toggle {
-
         display: flex;
     }
 
@@ -1508,7 +1433,6 @@ body.popup-open {
     /* MOBILE NAV */
 
     .nav-links {
-
         position: absolute;
 
         top: 100%;
@@ -1549,7 +1473,6 @@ body.popup-open {
     /* OPEN MENU */
 
     .nav-links.active {
-
         max-height: 300px;
 
         padding:
@@ -1560,7 +1483,6 @@ body.popup-open {
 
 
     .nav-links li {
-
         width: 100%;
 
         text-align: center;
@@ -1568,7 +1490,6 @@ body.popup-open {
 
 
     .nav-links a {
-
         display: block;
 
         padding: 14px 20px;
@@ -1581,7 +1502,6 @@ body.popup-open {
 
     .menu-toggle.active
     span:nth-child(1) {
-
         transform:
             translateY(6px)
             rotate(45deg);
@@ -1589,13 +1509,11 @@ body.popup-open {
 
     .menu-toggle.active
     span:nth-child(2) {
-
         opacity: 0;
     }
 
     .menu-toggle.active
     span:nth-child(3) {
-
         transform:
             translateY(-6px)
             rotate(-45deg);
@@ -1607,26 +1525,30 @@ body.popup-open {
     ===================================== */
 
     .hero {
-
         min-height:
             calc(100vh - 80px);
 
         padding:
-            0 20px 45px;
-
-        align-items:
-            flex-end;
+            0 20px 35px;
 
         justify-content:
             center;
 
+        align-items:
+            flex-end;
+
+        background-size:
+            contain;
+
         background-position:
-            58% center;
+            center center;
+
+        background-repeat:
+            no-repeat;
     }
 
 
     .instagram-hero-button {
-
         min-width: 0;
 
         width: 100%;
@@ -1645,13 +1567,11 @@ body.popup-open {
 
 
     .instagram-icon {
-
         font-size: 23px;
     }
 
 
     .instagram-arrow {
-
         font-size: 20px;
     }
 
@@ -1659,12 +1579,10 @@ body.popup-open {
     /* HERO TEXT SUPPORT */
 
     .hero h1 {
-
         letter-spacing: 5px;
     }
 
     .hero h2 {
-
         letter-spacing: 7px;
     }
 
@@ -1672,7 +1590,6 @@ body.popup-open {
     /* BOX GRID */
 
     .boxes-container {
-
         grid-template-columns: 1fr;
     }
 
@@ -1680,12 +1597,10 @@ body.popup-open {
     /* IMAGE */
 
     .box-image {
-
         height: 320px;
     }
 
     .box-product-image {
-
         padding: 20px;
     }
 
@@ -1695,7 +1610,6 @@ body.popup-open {
     ===================================== */
 
     .box-bottom {
-
         flex-direction: column;
 
         align-items: stretch;
@@ -1707,7 +1621,6 @@ body.popup-open {
     /* PRICE */
 
     .price-container {
-
         width: 100%;
 
         min-width: 0;
@@ -1721,14 +1634,12 @@ body.popup-open {
     }
 
     .price {
-
         font-size: 23px;
 
         margin-bottom: 6px;
     }
 
     .transfer-fee {
-
         font-size: 9px;
     }
 
@@ -1736,7 +1647,6 @@ body.popup-open {
     /* BUTTON AREA */
 
     .box-buttons {
-
         display: flex;
 
         flex-direction: column;
@@ -1754,7 +1664,6 @@ body.popup-open {
     /* DETAILS */
 
     .details-button {
-
         width: 100%;
 
         max-width: 280px;
@@ -1768,7 +1677,6 @@ body.popup-open {
     ===================================== */
 
     .order-button {
-
         width: auto !important;
 
         max-width: 280px;
@@ -1791,7 +1699,6 @@ body.popup-open {
     /* STEPS */
 
     .steps-container {
-
         grid-template-columns: 1fr;
 
         gap: 45px;
@@ -1801,12 +1708,10 @@ body.popup-open {
     /* TITLES */
 
     .section-title h2 {
-
         font-size: 36px;
     }
 
     .about h2 {
-
         font-size: 34px;
     }
 
@@ -1814,7 +1719,6 @@ body.popup-open {
     /* CONTACT */
 
     .contact-buttons {
-
         flex-direction: column;
 
         align-items: center;
@@ -1830,26 +1734,22 @@ body.popup-open {
 @media (max-width: 600px) {
 
     .product-popup {
-
         padding: 15px;
     }
 
 
     .popup-content {
-
         padding:
             45px 25px 30px;
     }
 
 
     .popup-content h2 {
-
         font-size: 31px;
     }
 
 
     .popup-bottom {
-
         flex-direction: column;
 
         align-items: stretch;
@@ -1857,7 +1757,6 @@ body.popup-open {
 
 
     .popup-price-container {
-
         align-items: center;
 
         text-align: center;
@@ -1865,7 +1764,6 @@ body.popup-open {
 
 
     .popup-bottom .gold-button {
-
         text-align: center;
 
         width: 100%;
