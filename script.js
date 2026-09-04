@@ -40,6 +40,7 @@ const accessoryBoxes = [
         featured: true
     },
 
+
     {
         id: 2,
         name: "Accessorie Box 02",
@@ -63,6 +64,7 @@ const accessoryBoxes = [
         featured: false
     },
 
+
     {
         id: 3,
         name: "Accessorie Box 03",
@@ -84,6 +86,7 @@ const accessoryBoxes = [
 
         featured: false
     },
+
 
     {
         id: 4,
@@ -107,6 +110,7 @@ const accessoryBoxes = [
         featured: false
     },
 
+
     {
         id: 5,
         name: "Accessorie Box 05",
@@ -128,6 +132,7 @@ const accessoryBoxes = [
 
         featured: false
     },
+
 
     {
         id: 6,
@@ -151,6 +156,7 @@ const accessoryBoxes = [
         featured: false
     },
 
+
     {
         id: 7,
         name: "Accessorie Box 07",
@@ -172,6 +178,7 @@ const accessoryBoxes = [
 
         featured: false
     },
+
 
     {
         id: 8,
@@ -232,6 +239,7 @@ const cosmeticBoxes = [
         featured: false
     },
 
+
     {
         id: 10,
         name: "Cosmetic Box 10",
@@ -259,6 +267,7 @@ const cosmeticBoxes = [
 
         featured: false
     },
+
 
     {
         id: 11,
@@ -289,10 +298,103 @@ const cosmeticBoxes = [
 
 /* =========================================
    HIJAB BOXES
-   EMPTY FOR NOW
 ========================================= */
 
-const hijabBoxes = [];
+const hijabBoxes = [
+
+    {
+        id: 12,
+        name: "Trio Nude",
+        price: "50 DT",
+        priceNumber: 50,
+
+        description:
+            "A timeless trio of soft nude tones, elegant and effortlessly chic.",
+
+        items: [
+            "Elegant hijabs",
+            "Soft nude shades",
+            "Classic & refined style"
+        ],
+
+        images: [
+            "images/hijab.jpg"
+        ],
+
+        featured: false
+    },
+
+
+    {
+        id: 13,
+        name: "Mocha Nude",
+        price: "50 DT",
+        priceNumber: 50,
+
+        description:
+            "Warm mocha tones blended with timeless elegance for a beautifully refined look.",
+
+        items: [
+            "Elegant hijabs",
+            "Mocha & nude shades",
+            "Chic & sophisticated style"
+        ],
+
+        images: [
+            "images/hijab2.jpg"
+        ],
+
+        featured: false
+    },
+
+
+    {
+        id: 14,
+        name: "Blush Mix",
+        price: "37 DT",
+        priceNumber: 37,
+
+        description:
+            "A delicate mix of beautiful blush tones, perfect for a soft and feminine touch.",
+
+        items: [
+            "Elegant hijabs",
+            "Soft blush shades",
+            "Feminine & graceful style"
+        ],
+
+        images: [
+            "images/hijab3.jpg"
+        ],
+
+        featured: false
+    },
+
+
+    {
+        id: 15,
+        name: "Nuances Marbrées",
+        price: "70 DT",
+        priceNumber: 70,
+
+        description:
+            "A sophisticated collection of marbled shades, where elegance meets effortless beauty.",
+
+        items: [
+            "Elegant hijabs",
+            "Marbled shades",
+            "Classic & luxurious style"
+        ],
+
+        images: [
+            "images/hijab4-1.jpg",
+            "images/hijab4-2.jpg"
+        ],
+
+        featured: false
+    }
+
+];
 
 
 /* =========================================
@@ -389,15 +491,18 @@ function createProductCard(box) {
 
             <div class="box-bottom">
 
+
                 <div class="price-area">
 
                     <span class="price">
                         ${box.price}
                     </span>
 
+
                     <span class="transfer-fee">
                         + ${transferFee} DT transfer fee
                     </span>
+
 
                     <span class="total-price">
                         Total: ${totalPrice} DT
@@ -407,6 +512,7 @@ function createProductCard(box) {
 
 
                 <div class="box-buttons">
+
 
                     <button
                         class="details-button"
@@ -425,9 +531,12 @@ function createProductCard(box) {
                         ORDER ON INSTAGRAM
                     </a>
 
+
                 </div>
 
+
             </div>
+
 
         </div>
 
@@ -467,6 +576,7 @@ function createProductCard(box) {
                 );
 
             }, 400);
+
 
         }, 5000);
 
@@ -590,6 +700,7 @@ popup.innerHTML = `
 
     <div class="popup-content">
 
+
         <button class="close-popup">
             ×
         </button>
@@ -621,6 +732,7 @@ popup.innerHTML = `
 
 
         <div class="popup-price-details">
+
 
             <div class="popup-price-row">
 
@@ -658,6 +770,7 @@ popup.innerHTML = `
 
             </div>
 
+
         </div>
 
 
@@ -675,6 +788,7 @@ popup.innerHTML = `
 
         </div>
 
+
     </div>
 
 `;
@@ -690,20 +804,26 @@ document.body.appendChild(popup);
 const popupName =
     document.getElementById("popup-name");
 
+
 const popupDescription =
     document.getElementById("popup-description");
+
 
 const popupBoxPrice =
     document.getElementById("popup-box-price");
 
+
 const popupTotalPrice =
     document.getElementById("popup-total-price");
+
 
 const popupItemsList =
     document.getElementById("popup-items-list");
 
+
 const popupInstagram =
     document.getElementById("popup-instagram");
+
 
 const closePopup =
     document.querySelector(".close-popup");
@@ -726,6 +846,7 @@ function addDetailButtonEvents() {
         button.addEventListener(
             "click",
             () => {
+
 
                 const boxID =
                     Number(button.dataset.id);
@@ -832,6 +953,7 @@ if (closePopup) {
                 "active"
             );
 
+
             document.body.classList.remove(
                 "popup-open"
             );
@@ -855,6 +977,7 @@ popup.addEventListener(
             popup.classList.remove(
                 "active"
             );
+
 
             document.body.classList.remove(
                 "popup-open"
@@ -880,6 +1003,7 @@ document.addEventListener(
                 "active"
             );
 
+
             document.body.classList.remove(
                 "popup-open"
             );
@@ -897,6 +1021,7 @@ document.addEventListener(
 const menuToggle =
     document.querySelector(".menu-toggle");
 
+
 const navLinks =
     document.querySelector(".nav-links");
 
@@ -910,6 +1035,7 @@ if (menuToggle && navLinks) {
             menuToggle.classList.toggle(
                 "active"
             );
+
 
             navLinks.classList.toggle(
                 "active"
@@ -936,6 +1062,7 @@ navigationLinks.forEach((link) => {
     link.addEventListener(
         "click",
         () => {
+
 
             if (menuToggle) {
 
