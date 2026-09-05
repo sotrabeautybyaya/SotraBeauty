@@ -22,18 +22,161 @@
     </script>
 
 
+    <!-- =========================
+         BASIC SEO
+    ========================== -->
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="Sotra Beauty by Aya - Beauty boxes, accessories, cosmetics and hijab collections."
+        content="Sotra Beauty by Aya — elegant beauty boxes, accessories, cosmetics and hijab collections. Discover our carefully selected boxes and order directly through Instagram."
     >
 
-    <title>Sotra Beauty by Aya</title>
+    <meta
+        name="keywords"
+        content="Sotra Beauty by Aya, beauty boxes, accessories boxes, cosmetics boxes, hijab boxes, beauty accessories, feminine gifts, Tunisia"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <meta
+        name="author"
+        content="Sotra Beauty by Aya"
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080808"
+    >
+
+
+    <!-- =========================
+         PAGE TITLE
+    ========================== -->
+
+    <title>
+        Sotra Beauty by Aya | Beauty Boxes, Accessories &amp; Hijabs
+    </title>
+
+
+    <!-- =========================
+         CANONICAL URL
+    ========================== -->
+
+    <link
+        rel="canonical"
+        href="https://sotrabeautybyaya.github.io/SotraBeauty/"
+    >
+
+
+    <!-- =========================
+         FAVICON
+         
+         Add your favicon later:
+         images/favicon.png
+    ========================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/favicon.png"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+         FACEBOOK / MESSENGER /
+         SOCIAL MEDIA SHARING
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://sotrabeautybyaya.github.io/SotraBeauty/"
+    >
+
+    <meta
+        property="og:title"
+        content="Sotra Beauty by Aya | Beauty Boxes, Accessories &amp; Hijabs"
+    >
+
+    <meta
+        property="og:description"
+        content="Discover elegant beauty boxes, accessories, cosmetics and hijab collections by Sotra Beauty by Aya."
+    >
+
+    <meta
+        property="og:image"
+        content="https://sotrabeautybyaya.github.io/SotraBeauty/images/social-preview.jpg"
+    >
+
+    <meta
+        property="og:image:alt"
+        content="Sotra Beauty by Aya — elegant beauty boxes and accessories"
+    >
+
+    <meta
+        property="og:site_name"
+        content="Sotra Beauty by Aya"
+    >
+
+    <meta
+        property="og:locale"
+        content="en_US"
+    >
+
+
+    <!-- =========================
+         TWITTER / X SHARING
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary_large_image"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Sotra Beauty by Aya | Beauty Boxes, Accessories &amp; Hijabs"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Discover elegant beauty boxes, accessories, cosmetics and hijab collections by Sotra Beauty by Aya."
+    >
+
+    <meta
+        name="twitter:image"
+        content="https://sotrabeautybyaya.github.io/SotraBeauty/images/social-preview.jpg"
+    >
+
+    <meta
+        name="twitter:image:alt"
+        content="Sotra Beauty by Aya — elegant beauty boxes and accessories"
+    >
+
+
+    <!-- =========================
+         STYLESHEET
+    ========================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -51,7 +194,11 @@
 
             <!-- LOGO -->
 
-            <a href="#home" class="logo">
+            <a
+                href="#home"
+                class="logo"
+                aria-label="Sotra Beauty by Aya - Home"
+            >
 
                 SOTRA BEAUTY
 
@@ -67,6 +214,7 @@
             <button
                 class="menu-toggle"
                 aria-label="Open menu"
+                aria-expanded="false"
                 type="button"
             >
 
@@ -180,7 +328,11 @@
          HERO
     ========================== -->
 
-    <section id="home" class="hero">
+    <section
+        id="home"
+        class="hero"
+        aria-label="Sotra Beauty by Aya"
+    >
 
         <div class="hero-content">
 
@@ -189,15 +341,22 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="instagram-hero-button"
+                aria-label="Follow Sotra Beauty by Aya on Instagram"
             >
 
-                <span class="instagram-icon">
+                <span
+                    class="instagram-icon"
+                    aria-hidden="true"
+                >
                     ◎
                 </span>
 
                 FOLLOW US ON INSTAGRAM
 
-                <span class="instagram-arrow">
+                <span
+                    class="instagram-arrow"
+                    aria-hidden="true"
+                >
                     →
                 </span>
 
@@ -213,7 +372,10 @@
          INTRODUCTION
     ========================== -->
 
-    <section class="intro">
+    <section
+        class="intro"
+        aria-labelledby="collection-title"
+    >
 
         <div class="section-title">
 
@@ -222,7 +384,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="collection-title">
                 Accessories Boxes
             </h2>
 
@@ -248,6 +410,7 @@
     <section
         id="boxes"
         class="boxes-section"
+        aria-labelledby="accessories-title"
     >
 
         <div class="section-title">
@@ -257,7 +420,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="accessories-title">
                 Our Accessories Boxes
             </h2>
 
@@ -267,6 +430,7 @@
         <div
             class="boxes-container"
             id="boxes-container"
+            aria-live="polite"
         >
 
             <!--
@@ -287,6 +451,7 @@
     <section
         id="cosmetics"
         class="boxes-section"
+        aria-labelledby="cosmetics-title"
     >
 
         <div class="section-title">
@@ -296,7 +461,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="cosmetics-title">
                 Our Cosmetics Boxes
             </h2>
 
@@ -306,6 +471,7 @@
         <div
             class="boxes-container"
             id="cosmetics-container"
+            aria-live="polite"
         >
 
             <!--
@@ -326,6 +492,7 @@
     <section
         id="hijabs"
         class="boxes-section"
+        aria-labelledby="hijabs-title"
     >
 
         <div class="section-title">
@@ -335,7 +502,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="hijabs-title">
                 Our Hijab Boxes
             </h2>
 
@@ -345,6 +512,7 @@
         <div
             class="boxes-container"
             id="hijabs-container"
+            aria-live="polite"
         >
 
             <!--
@@ -362,7 +530,10 @@
          HOW TO ORDER
     ========================== -->
 
-    <section class="how-it-works">
+    <section
+        class="how-it-works"
+        aria-labelledby="how-to-order-title"
+    >
 
         <div class="section-title">
 
@@ -371,7 +542,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="how-to-order-title">
                 How To Order
             </h2>
 
@@ -385,7 +556,7 @@
 
             <div class="step">
 
-                <span>
+                <span aria-hidden="true">
                     01
                 </span>
 
@@ -408,7 +579,7 @@
 
             <div class="step">
 
-                <span>
+                <span aria-hidden="true">
                     02
                 </span>
 
@@ -431,7 +602,7 @@
 
             <div class="step">
 
-                <span>
+                <span aria-hidden="true">
                     03
                 </span>
 
@@ -462,6 +633,7 @@
     <section
         id="about"
         class="about"
+        aria-labelledby="about-title"
     >
 
         <div class="about-content">
@@ -471,7 +643,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="about-title">
                 Elegance In Every Detail.
             </h2>
 
@@ -501,6 +673,7 @@
     <section
         id="contact"
         class="contact"
+        aria-labelledby="contact-title"
     >
 
         <div class="section-title">
@@ -510,7 +683,7 @@
             </p>
 
 
-            <h2>
+            <h2 id="contact-title">
                 Get In Touch
             </h2>
 
@@ -532,6 +705,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="gold-button"
+                aria-label="Contact Sotra Beauty by Aya on Instagram"
             >
                 INSTAGRAM
             </a>
@@ -548,7 +722,10 @@
 
     <footer>
 
-        <div class="logo">
+        <div
+            class="logo"
+            aria-label="Sotra Beauty by Aya"
+        >
 
             SOTRA BEAUTY
 
