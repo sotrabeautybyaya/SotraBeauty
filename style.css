@@ -131,11 +131,11 @@ header {
 
     display: flex;
 
-    align-items: flex-end;
+    align-items: center;
 
-    justify-content: flex-start;
+    justify-content: center;
 
-    padding: 0 0 50px 6%;
+    padding: 0 30px;
 
     background-color: #080808;
 
@@ -182,6 +182,10 @@ header {
     position: relative;
 
     z-index: 2;
+
+    text-align: center;
+
+    margin: 0 auto;
 
     animation:
         sotraFadeUp 1.2s ease-out both;
@@ -246,7 +250,9 @@ header {
 
     gap: 18px;
 
-    min-width: 480px;
+    min-width: 0;
+
+    width: auto;
 
     padding: 17px 30px;
 
@@ -1548,6 +1554,13 @@ body.popup-open {
     }
 
 
+    .hero-content {
+        text-align: center;
+
+        margin: 0 auto;
+    }
+
+
     .instagram-hero-button {
         min-width: 0;
 
@@ -1796,6 +1809,8 @@ body.popup-open {
     }
 
 }
+
+
 /* =========================================
    LANGUAGE SWITCHER
    SOTRA BEAUTY BY AYA
@@ -1803,24 +1818,28 @@ body.popup-open {
 
 .language-switcher {
     position: relative;
+
     list-style: none;
 }
 
 
 .language-button {
-    background: transparent;
-    border: 1px solid rgba(212, 175, 55, 0.55);
+    background: #080808;
+
+    border: 1px solid #d4af37;
 
     color: #d4af37;
 
-    padding: 8px 12px;
+    padding: 8px 14px;
+
+    border-radius: 4px;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 11px;
+    font-size: 14px;
 
     letter-spacing: 1.5px;
 
@@ -1841,7 +1860,8 @@ body.popup-open {
 
     border-color: #d4af37;
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
 
@@ -1852,24 +1872,23 @@ body.popup-open {
 .language-menu {
     position: absolute;
 
-    top: calc(100% + 12px);
+    top: calc(100% + 8px);
 
     right: 0;
 
-    min-width: 90px;
+    min-width: 120px;
 
-    padding: 7px;
+    padding: 6px 0;
 
-    background:
-        rgba(10, 10, 10, 0.98);
+    background: #080808;
 
-    border:
-        1px solid
-        rgba(212, 175, 55, 0.35);
+    border: 1px solid #d4af37;
+
+    border-radius: 4px;
 
     box-shadow:
-        0 15px 35px
-        rgba(0, 0, 0, 0.55);
+        0 8px 20px
+        rgba(0, 0, 0, 0.5);
 
     opacity: 0;
 
@@ -1883,7 +1902,7 @@ body.popup-open {
         visibility 0.25s ease,
         transform 0.25s ease;
 
-    z-index: 1100;
+    z-index: 9999;
 }
 
 
@@ -1906,24 +1925,22 @@ body.popup-open {
 
     width: 100%;
 
-    padding: 10px 12px;
+    padding: 10px 15px;
+
+    background: #080808;
+
+    color: #d4af37;
 
     border: none;
 
-    background: transparent;
-
-    color: #eee8dc;
+    text-align: left;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 11px;
-
-    letter-spacing: 1.5px;
-
-    text-align: center;
+    font-size: 14px;
 
     cursor: pointer;
 
@@ -1934,10 +1951,9 @@ body.popup-open {
 
 
 .language-menu button:hover {
-    background:
-        rgba(212, 175, 55, 0.12);
+    background: #d4af37;
 
-    color: #d4af37;
+    color: #080808;
 }
 
 
@@ -2117,6 +2133,8 @@ html[dir="rtl"] .popup-total-row {
         opacity: 1;
 
         visibility: visible;
+
+        transform: none;
     }
 
 
@@ -2133,6 +2151,8 @@ html[dir="rtl"] .popup-total-row {
         padding-right: 25px;
 
         padding-left: 25px;
+
+        justify-content: center;
     }
 
 
@@ -2159,7 +2179,9 @@ html[dir="rtl"] .popup-total-row {
 
 
     html[dir="rtl"] .price-container {
-        text-align: right;
+        text-align: center;
+
+        align-items: center;
     }
 
 
@@ -2190,77 +2212,22 @@ html[dir="rtl"] .popup-total-row {
     }
 
 }
-/* =========================
-   LANGUAGE SWITCHER
-========================= */
-
-.language-switcher {
-    position: relative;
-}
-
-.language-button {
-    background: #080808;
-    color: #d4af37;
-    border: 1px solid #d4af37;
-    padding: 8px 14px;
-    border-radius: 4px;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.language-button:hover {
-    background: #d4af37;
-    color: #080808;
-}
-
-.language-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    min-width: 120px;
-    background: #080808;
-    border: 1px solid #d4af37;
-    border-radius: 4px;
-    padding: 6px 0;
-    z-index: 9999;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.language-menu.active {
-    display: block;
-}
-
-.language-menu button {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    background: #080808;
-    color: #d4af37;
-    border: none;
-    text-align: left;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.language-menu button:hover {
-    background: #d4af37;
-    color: #080808;
-}
 
 
-/* =========================
-   INSTAGRAM BUTTON - HOME
-========================= */
+/* =========================================
+   FINAL HOME INSTAGRAM BUTTON
+========================================= */
 
-.hero .instagram-button,
-.hero a[href*="instagram"] {
-    display: block;
-    width: fit-content;
-    margin: 25px auto 0 auto;
+/* This targets ONLY the actual hero Instagram button */
+
+.hero .instagram-hero-button {
+    display: inline-flex;
+
+    width: auto;
+
+    min-width: 0;
+
+    margin: 25px auto 0;
+
     text-align: center;
 }
