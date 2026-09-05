@@ -2190,3 +2190,77 @@ html[dir="rtl"] .popup-total-row {
     }
 
 }
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+.language-switcher {
+    position: relative;
+}
+
+.language-button {
+    background: #080808;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-button:hover {
+    background: #d4af37;
+    color: #080808;
+}
+
+.language-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 120px;
+    background: #080808;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    padding: 6px 0;
+    z-index: 9999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.language-menu.active {
+    display: block;
+}
+
+.language-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background: #080808;
+    color: #d4af37;
+    border: none;
+    text-align: left;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.language-menu button:hover {
+    background: #d4af37;
+    color: #080808;
+}
+
+
+/* =========================
+   INSTAGRAM BUTTON - HOME
+========================= */
+
+.hero .instagram-button,
+.hero a[href*="instagram"] {
+    display: block;
+    width: fit-content;
+    margin: 25px auto 0 auto;
+    text-align: center;
+}
